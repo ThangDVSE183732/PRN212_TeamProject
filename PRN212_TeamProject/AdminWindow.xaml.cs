@@ -22,7 +22,6 @@ namespace PRN212_TeamProject
         public AdminWindow()
         {
             InitializeComponent();
-            AdminContentControl.Content = new UserManagementControl();
         }
     }
 }

@@ -13,17 +13,21 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <!-- Đăng nhập -->
-        <GroupBox Header="Please login first"  Background="#f7f7f7" Width="250" Height="200" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Black" BorderThickness="1" Padding="15"  >
+        <GroupBox Header="Please login"  Background="#f7f7f7" Width="250" Height="200" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Black" BorderThickness="1" Padding="15"  >
             <StackPanel>
                 <TextBlock Text="Email" FontWeight="Bold" FontSize="10"/>
-                <TextBox Name="txtEmail" Margin="0,5,0,10" />
+                <TextBox x:Name="txtEmail" Margin="0,5,0,10" />
                 <TextBlock Text="Password" FontWeight="Bold" FontSize="10"/>
                 <Grid>
-                    <PasswordBox Name="txtPassword" Margin="0,5,20,15"/>
-                    <Button  Content="👁" Width="20" Height="17" VerticalAlignment="Top" HorizontalAlignment="Right"  Margin="0,5,0,0"  />
+                    <TextBox x:Name="txtPasswordVisible"
+             Visibility="Collapsed"
+             Margin="0,5,20,15"
+            />
+                    <PasswordBox x:Name="txtPassword" Margin="0,5,20,15"/>
+                    <Button x:Name="btnShowPassword" Content="👁" Width="20" Height="17" VerticalAlignment="Top" HorizontalAlignment="Right"  Margin="0,5,0,0" Click="btnShowPassword_Click"  />
                 </Grid>
                 <TextBlock Text="Forgot Password?" FontSize="8" FontWeight="Bold" Foreground="LightSkyBlue" TextAlignment="Center"/>
-                <Button Content="Log in" FontWeight="bold" Foreground="White" Background="SkyBlue" Margin="0,7" Height="20" Width="130"/>
+                <Button Name="btnLogin" Content="Log in" FontWeight="bold" Foreground="White" Background="SkyBlue" Margin="0,7" Height="20" Width="130" Click="btnLogin_Click"/>
             </StackPanel>
         </GroupBox>
         <Border Grid.Column="1" Background="Gray" Width="1" HorizontalAlignment="center" Height="300"/>
