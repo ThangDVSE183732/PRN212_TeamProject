@@ -9,34 +9,42 @@
 
         Title="AdminWindow" Height="450" Width="800">
     <Grid>
-        <DockPanel Background="#00BCD4" Width="201" HorizontalAlignment="Left" >
-            <StackPanel>
-             
+        <DockPanel Background="#00BCD4" Width="200" 
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Stretch">
+            <StackPanel VerticalAlignment="Stretch">
+                <!-- Logo -->
                 <Image Source="/Img/Home.png" Height="63" Width="198"/>
 
-                <TextBlock Text="Hotel Management System" FontSize="17" FontWeight="SemiBold" Foreground="White" TextAlignment="Center" Margin="0,0,0,15" TextWrapping="wrap"/>
+                <TextBlock Text="Hotel Management System" FontSize="17" FontWeight="SemiBold" 
+                           Foreground="White" TextAlignment="Center" Margin="0,0,0,15" TextWrapping="Wrap"/>
 
-                <StackPanel Orientation="Horizontal" Margin="30,30,0,0" >
-                    <TextBlock Text="Welcome " FontSize="15" FontWeight="Medium" Foreground="White" Width="255" Height="24"/>
-                </StackPanel> 
-                
-                <StackPanel Orientation="Horizontal" Margin="29,50,0,0" VerticalAlignment="Center" >
-                    <fa:IconBlock Icon="Chalkboard" FontSize="14" Foreground="White" Margin="0,0,30,0"/>
-                    <TextBlock Text="User Management" FontWeight="SemiBold" Foreground="White" FontSize="10"  />
+                <!-- Welcome -->
+                <StackPanel Orientation="Horizontal" Margin="30,30,0,0">
+                    <TextBlock Text="Welcome" FontSize="15" FontWeight="Medium" Foreground="White"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="30,30,0,0" >
+
+                <!-- User Management -->
+                <StackPanel Orientation="Horizontal" Margin="29,50,0,0">
+                    <fa:IconBlock Icon="Chalkboard" FontSize="14" Foreground="White" Margin="0,0,30,0"/>
+                    <TextBlock Text="User Management" FontWeight="SemiBold" Foreground="White" FontSize="10"/>
+                </StackPanel>
+
+                <!-- Room Management -->
+                <StackPanel Orientation="Horizontal" Margin="30,30,0,0">
                     <fa:IconBlock Icon="User" FontSize="14" Foreground="White" Margin="0,0,31,0"/>
                     <TextBlock Text="Room Management" FontWeight="SemiBold" Foreground="White" FontSize="10"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="30,30,0,0" >
-                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Height="24" Width="67" >
-                        <fa:IconBlock Icon="SignOutAlt" FontSize="16" Foreground="White" Margin="0,0,6,0"/>
-                        <TextBlock Text="LOG OUT" FontWeight="SemiBold" Foreground="White" FontSize="10" Height="14" Width="45"/>
-                    </StackPanel>
+
+                <!-- Logout (dock bottom if needed) -->
+                <StackPanel Orientation="Horizontal" Margin="30,30,0,0">
+                    <fa:IconBlock Icon="SignOutAlt" FontSize="16" Foreground="White" Margin="0,0,6,0"/>
+                    <TextBlock Text="LOG OUT" FontWeight="SemiBold" Foreground="White" FontSize="10"/>
                 </StackPanel>
             </StackPanel>
         </DockPanel>
-        <StackPanel>
-        </StackPanel>
+
+        <Grid Margin="200,0,0,0">
+        </Grid>
     </Grid>
 </Window>
