@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,38 @@ namespace PRN212_TeamProject
     /// </summary>
     public partial class AdminWindow : Window
     {
+        public User Auth { get; set; }
+
         public AdminWindow()
         {
             InitializeComponent();
+        }
+
+        private void navToServicePage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            ServiceTestingWindow serviceTestingWindow = new ServiceTestingWindow();
+            serviceTestingWindow.Show();
+            this.Close();
+        }
+
+        private void navToLoginPage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBoxResult msg = MessageBox.Show("Bạn có muốn thật sự đăng xuất không?", "LOG OUT", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (msg == MessageBoxResult.Yes)
+            {
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.Show();
+                this.Close();
+            }
+        }
+
+        private void navToUserManagementPage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            UserManagement userManagement = new UserManagement();
+            userManagement.Auth = Auth;
+            userManagement.Show();
+            this.Close();
         }
     }
 }
