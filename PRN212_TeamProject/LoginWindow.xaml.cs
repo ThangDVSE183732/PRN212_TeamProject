@@ -43,8 +43,13 @@ namespace PRN212_TeamProject
                 MessageBox.Show("Invalid Email Or Password", "Login Error", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
                 return;
             }
-            AdminWindow adminWindow = new();
-            adminWindow.Show();
+            if (user != null)
+            {
+                AdminWindow adminWindow = new();
+                adminWindow.Auth = user;
+                adminWindow.Show();
+            }
+           
             this.Close();
         }
 

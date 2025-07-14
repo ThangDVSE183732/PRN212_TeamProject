@@ -1,8 +1,10 @@
 ﻿using BLL.Services;
 using DAL.Entities;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace PRN212_TeamProject
 {
@@ -43,29 +46,57 @@ namespace PRN212_TeamProject
                 txtDescription.Text = service.Description;
                 txtPrice.Text = service.Price.ToString();
 
-                // Set ComboBox based on string value
-                foreach (ComboBoxItem item in cbStatus.Items)
-                {
-                    if (item.Content.ToString().Equals(service.Status, StringComparison.OrdinalIgnoreCase))
-                    {
-                        cbStatus.SelectedItem = item;
-                        break;
-                    }
-                }
             }
         }
 
         private void btn_CreateService_Click(object sender, RoutedEventArgs e)
         {
-            var selectedStatusItem = cbStatus.SelectedItem as ComboBoxItem;
-            string status = selectedStatusItem?.Content.ToString() ?? "Inactive";
+            string name = txtName.Text.Trim();
+            if (string.IsNullOrEmpty(name))
+            {
+                MessageBox.Show("Service name cannot be empty.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (name.Length > 100)
+            {
+                MessageBox.Show("Service name must be less than or equal to 100 characters.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            // Validate Description (optional)
+            string description = txtDescription.Text.Trim();
+            if (description.Length > 500)
+            {
+                MessageBox.Show("Description must be less than or equal to 500 characters.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            // Validate Price
+            if (string.IsNullOrWhiteSpace(txtPrice.Text))
+            {
+                MessageBox.Show("Price cannot be empty.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            decimal price = 0;
+            if (!decimal.TryParse(txtPrice.Text, out price) || price < 0)
+            {
+                MessageBox.Show("Price must be a positive number.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (_serviceService.ExistByServiceName(name))
+            {
+                MessageBox.Show("Service name already exists!", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
 
             Service service = new Service()
             {
-                Name = txtName.Text,
-                Description = txtDescription.Text,
-                Price = decimal.Parse(txtPrice.Text),
-                Status = status,
+                Name = name,
+                Description = description,
+                Price = price,
+                Status = "ACTIVE",
             };
             _serviceService.CreateService(service);
             LoadService();
@@ -75,16 +106,52 @@ namespace PRN212_TeamProject
         {
             if (dgService.SelectedItem is Service selectedService)
             {
-                var selectedStatusItem = cbStatus.SelectedItem as ComboBoxItem;
-                string status = selectedStatusItem?.Content.ToString() ?? "Inactive";
+                string name = txtName.Text.Trim();
+                if (string.IsNullOrEmpty(name))
+                {
+                    MessageBox.Show("Service name cannot be empty.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                if (name.Length > 100)
+                {
+                    MessageBox.Show("Service name must be less than or equal to 100 characters.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                // Validate Description (optional)
+                string description = txtDescription.Text.Trim();
+                if (description.Length > 500)
+                {
+                    MessageBox.Show("Description must be less than or equal to 500 characters.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                // Validate Price
+                if (string.IsNullOrWhiteSpace(txtPrice.Text))
+                {
+                    MessageBox.Show("Price cannot be empty.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                decimal price = 0;
+                if (!decimal.TryParse(txtPrice.Text, out price) || price < 0)
+                {
+                    MessageBox.Show("Price must be a positive number.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                if(_serviceService.ExistsByServiceNameExceptId(name, selectedService.ServiceId))
+                {
+                    MessageBox.Show("Service name already exists!", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
 
                 Service service = new Service()
                 {
                     ServiceId = selectedService.ServiceId,
-                    Name = txtName.Text,
-                    Description = txtDescription.Text,
-                    Price = decimal.Parse(txtPrice.Text),
-                    Status = status
+                    Name = name,
+                    Description = description,
+                    Price = price,
+                    Status = "ACTIVE"
                 };
 
                 _serviceService.UpdateService(service);
@@ -110,14 +177,14 @@ namespace PRN212_TeamProject
             }
         }
 
-        private void btn_DeleteService_Click(object sender, RoutedEventArgs e)
+        private void btn_InactiveService_Click(object sender, RoutedEventArgs e)
         {
             if (dgService.SelectedItem is Service selectedService)
             {
                 var result = MessageBox.Show("Are you sure you want to deactivate this service?", "Confirm", MessageBoxButton.YesNo, MessageBoxImage.Warning);
                 if (result == MessageBoxResult.No) return;
 
-                selectedService.Status = "Inactive";
+                selectedService.Status = "INACTIVE";
 
                 _serviceService.UpdateService(selectedService);
                 LoadService();
@@ -126,6 +193,39 @@ namespace PRN212_TeamProject
             {
                 MessageBox.Show("Please select a service to continue!");
             }
+        }
+
+        private void StackPanel_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            AdminWindow adminWindow = new AdminWindow();
+            adminWindow.Show();
+            this.Close();
+        }
+
+        private void btn_ActiveService_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgService.SelectedItem is Service selectedService)
+            {
+                var result = MessageBox.Show("Are you sure you want to active this service?", "Confirm", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                if (result == MessageBoxResult.No) return;
+
+                selectedService.Status = "ACTIVE";
+
+                _serviceService.UpdateService(selectedService);
+                LoadService();
+            }
+            else
+            {
+                MessageBox.Show("Please select a service to continue!");
+            }
+        }
+
+        private void btn_ClearChoice_Click(object sender, RoutedEventArgs e)
+        {
+            dgService.UnselectAll();
+            txtName.Clear();
+            txtDescription.Clear();
+            txtPrice.Clear();
         }
     }
 }

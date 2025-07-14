@@ -43,6 +43,15 @@ namespace BLL.Services
             _serviceRepository.UpdateService(service);
         }
 
+        public bool ExistByServiceName(string name)
+        {
+            return _serviceRepository.ExistByServiceName(name);
+        }
+
+        public bool ExistsByServiceNameExceptId(string serviceName, int id)
+        {
+            return _serviceRepository.ExistsByServiceNameExceptId(serviceName, id);
+        }
 
     }
 }

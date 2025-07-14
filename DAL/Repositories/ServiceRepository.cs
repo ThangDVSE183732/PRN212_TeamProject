@@ -10,7 +10,7 @@ namespace DAL.Repositories
 {
     public class ServiceRepository
     {
-        private readonly Prn212Context _context;
+        private Prn212Context _context;
 
         public ServiceRepository()
         {
@@ -29,7 +29,10 @@ namespace DAL.Repositories
 
         public void CreateService(Service service)
         {
-            service.ServiceId = _context.Services.Max(x => x.ServiceId) + 1;
+            int maxId = _context.Services.Any()
+                   ? _context.Services.Max(x => x.ServiceId)
+                   : 0;
+            service.ServiceId = maxId + 1;
             _context.Services.Add(service);
             _context.SaveChanges();
         }
@@ -56,6 +59,15 @@ namespace DAL.Repositories
             _context.SaveChanges();
         }
 
+        public bool ExistByServiceName(string name)
+        {
+            return _context.Services.Any(s => s.Name == name);
+        }
+
+        public bool ExistsByServiceNameExceptId(string name, int id)
+        {
+            return _context.Services.Any(s => s.Name == name && s.ServiceId != id);
+        }
 
     }
 }

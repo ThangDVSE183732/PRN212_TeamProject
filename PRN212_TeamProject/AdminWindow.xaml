@@ -25,7 +25,7 @@
                 </StackPanel>
 
                 <!-- User Management -->
-                <StackPanel Orientation="Horizontal" Margin="29,50,0,0">
+                <StackPanel x:Name="navToUserManagementPage" Orientation="Horizontal" Margin="29,50,0,0" MouseLeftButtonUp="navToUserManagementPage_MouseLeftButtonUp">
                     <fa:IconBlock Icon="Chalkboard" FontSize="14" Foreground="White" Margin="0,0,30,0"/>
                     <TextBlock Text="User Management" FontWeight="SemiBold" Foreground="White" FontSize="10"/>
                 </StackPanel>
@@ -33,11 +33,16 @@
                 <!-- Room Management -->
                 <StackPanel Orientation="Horizontal" Margin="30,30,0,0">
                     <fa:IconBlock Icon="User" FontSize="14" Foreground="White" Margin="0,0,31,0"/>
-                    <TextBlock Text="Room Management" FontWeight="SemiBold" Foreground="White" FontSize="10"/>
+                    <TextBlock Text="Doctor Management" FontWeight="SemiBold" Foreground="White" FontSize="10"/>
+                </StackPanel>
+                
+                <StackPanel x:Name="navToServicePage" Orientation="Horizontal" Margin="30,30,0,0" MouseLeftButtonUp="navToServicePage_MouseLeftButtonUp" >
+                    <fa:IconBlock Icon="User" FontSize="14" Foreground="White" Margin="0,0,31,0"/>
+                    <TextBlock Text="Service Management" FontWeight="SemiBold" Foreground="White" FontSize="10"/>
                 </StackPanel>
 
                 <!-- Logout (dock bottom if needed) -->
-                <StackPanel Orientation="Horizontal" Margin="30,30,0,0">
+                <StackPanel  x:Name="navToLoginPage"  Orientation="Horizontal" Margin="30,30,0,0" MouseLeftButtonUp="navToLoginPage_MouseLeftButtonUp" >
                     <fa:IconBlock Icon="SignOutAlt" FontSize="16" Foreground="White" Margin="0,0,6,0"/>
                     <TextBlock Text="LOG OUT" FontWeight="SemiBold" Foreground="White" FontSize="10"/>
                 </StackPanel>
