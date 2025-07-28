@@ -33,13 +33,13 @@ namespace DLL.Services
                 return false;
 
             if (!ValidatePhone(doctor.Phone)) return false;
-            if (!ValidateLicenseNumber(doctor.LicenseNumber)) return false;
-            if (!ValidateExperience(doctor.Experience)) return false;
+            //if (!ValidateLicenseNumber(doctor.LicenseNumber)) return false;
+            //if (!ValidateExperience(doctor.Experience)) return false;
 
             if (_doctorRepository.PhoneExists(doctor.Phone)) return false;
 
-            if (!string.IsNullOrEmpty(doctor.LicenseNumber) &&
-                _doctorRepository.LicenseNumberExists(doctor.LicenseNumber)) return false;
+            //if (!string.IsNullOrEmpty(doctor.LicenseNumber) &&
+            //    _doctorRepository.LicenseNumberExists(doctor.LicenseNumber)) return false;
 
             doctor.Status = "ACTIVE";
 

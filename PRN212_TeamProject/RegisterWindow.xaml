@@ -1,11 +1,11 @@
-﻿<Window x:Class="PRN212_TeamProject.LoginWindow"
+﻿<Window x:Class="PRN212_TeamProject.RegisterWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PRN212_TeamProject"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="450" Width="800">
+        Title="RegisterWindow" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -13,21 +13,21 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <!-- Đăng nhập -->
-        <GroupBox Header="Please login"  Background="#f7f7f7" Width="250" Height="200" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Black" BorderThickness="1" Padding="15"  >
+        <GroupBox Header="Please register"  Background="#f7f7f7" Width="250" Height="200" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Black" BorderThickness="1" Padding="15"  >
             <StackPanel>
                 <TextBlock Text="Email" FontWeight="Bold" FontSize="10"/>
                 <TextBox x:Name="txtEmail" Margin="0,5,0,10" />
                 <TextBlock Text="Password" FontWeight="Bold" FontSize="10"/>
                 <Grid>
                     <TextBox x:Name="txtPasswordVisible"
-             Visibility="Collapsed"
-             Margin="0,5,20,15"
-            />
+         Visibility="Collapsed"
+         Margin="0,5,20,15"
+        />
                     <PasswordBox x:Name="txtPassword" Margin="0,5,20,15"/>
                     <Button x:Name="btnShowPassword" Content="👁" Width="20" Height="17" VerticalAlignment="Top" HorizontalAlignment="Right"  Margin="0,5,0,0" Click="btnShowPassword_Click"  />
                 </Grid>
-                <TextBlock Text="Forgot Password?" FontSize="8" FontWeight="Bold" Foreground="LightSkyBlue" TextAlignment="Center"/>
-                <Button Name="btnLogin" Content="Log in" FontWeight="bold" Foreground="White" Background="SkyBlue" Margin="0,7" Height="20" Width="130" Click="btnLogin_Click"/>
+                <TextBlock Text="You already have an account?" FontSize="8" FontWeight="Bold" Foreground="LightSkyBlue" TextAlignment="Center"/>
+                <Button Name="btnRegister" Content="Sign up" FontWeight="bold" Foreground="White" Background="SkyBlue" Margin="0,7" Height="20" Width="130" Click="btnRegister_Click"/>
             </StackPanel>
         </GroupBox>
         <Border Grid.Column="1" Background="Gray" Width="1" HorizontalAlignment="center" Height="300"/>

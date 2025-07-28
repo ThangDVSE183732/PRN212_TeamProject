@@ -38,8 +38,8 @@ namespace DAL.Repositories
             existingDoctor.DoctorName = doctor.DoctorName;
             existingDoctor.Specialization = doctor.Specialization;
             existingDoctor.Phone = doctor.Phone;
-            existingDoctor.LicenseNumber = doctor.LicenseNumber;
-            existingDoctor.Experience = doctor.Experience;
+            //existingDoctor.LicenseNumber = doctor.LicenseNumber;
+            //existingDoctor.Experience = doctor.Experience;
 
             return _context.SaveChanges() > 0;
         }
@@ -72,10 +72,10 @@ namespace DAL.Repositories
             return _context.Doctors.Any(d => d.Phone == phone);
         }
 
-        public bool LicenseNumberExists(string licenseNumber)
-        {
-            return _context.Doctors.Any(d => d.LicenseNumber == licenseNumber);
-        }
+        //public bool LicenseNumberExists(string licenseNumber)
+        //{
+        //    return _context.Doctors.Any(d => d.LicenseNumber == licenseNumber);
+        //}
 
         public List<Doctor> GetActiveDoctors()
         {

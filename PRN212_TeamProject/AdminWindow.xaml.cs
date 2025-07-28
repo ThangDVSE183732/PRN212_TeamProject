@@ -25,33 +25,46 @@ namespace PRN212_TeamProject
         public AdminWindow()
         {
             InitializeComponent();
+            MainContentControl.Content = new UserManagement();
         }
 
-        private void navToServicePage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void UserManagment_Click(object sender, MouseButtonEventArgs e)
         {
-            ServiceTestingWindow serviceTestingWindow = new ServiceTestingWindow();
-            serviceTestingWindow.Show();
-            this.Close();
+            MainContentControl.Content = new UserManagement();
         }
 
-        private void navToLoginPage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void DoctorManagment_Click(object sender, MouseButtonEventArgs e)
         {
-            MessageBoxResult msg = MessageBox.Show("Bạn có muốn thật sự đăng xuất không?", "LOG OUT", MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-            if (msg == MessageBoxResult.Yes)
-            {
-                LoginWindow loginWindow = new LoginWindow();
-                loginWindow.Show();
-                this.Close();
-            }
+            MainContentControl.Content = new DoctorManagement();
         }
 
-        private void navToUserManagementPage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            UserManagement userManagement = new UserManagement();
-            userManagement.Auth = Auth;
-            userManagement.Show();
-            this.Close();
-        }
+
+
+        //private void navToServicePage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        //{
+        //    ServiceTestingWindow serviceTestingWindow = new ServiceTestingWindow();
+        //    serviceTestingWindow.Show();
+        //    this.Close();
+        //}
+
+        //private void navToLoginPage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        //{
+        //    MessageBoxResult msg = MessageBox.Show("Bạn có muốn thật sự đăng xuất không?", "LOG OUT", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+        //    if (msg == MessageBoxResult.Yes)
+        //    {
+        //        LoginWindow loginWindow = new LoginWindow();
+        //        loginWindow.Show();
+        //        this.Close();
+        //    }
+        //}
+
+        //private void navToUserManagementPage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        //{
+        //    UserManagement userManagement = new UserManagement();
+        //    userManagement.Auth = Auth;
+        //    userManagement.Show();
+        //    this.Close();
+        //}
     }
 }

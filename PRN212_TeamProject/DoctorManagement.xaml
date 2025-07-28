@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="PRN212_TeamProject.DoctorManagement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PRN212_TeamProject"
+             mc:Ignorable="d" 
+             >
+    <StackPanel>
+        <Border   BorderBrush="Black" BorderThickness="1" Width="530" Height="280" Padding="20,10,20,10">
+            <ContentControl x:Name="DoctorContentControl" />
+
+        </Border>
+        <Grid>
+
+            <Button Margin="27,0,0,0" Width="80" Height="15" HorizontalAlignment="Left" Content="Search Doctor" FontSize="8" Click="SearchDoctor_Click" />
+            <Button Margin="109,0,0,0" Width="80" Height="15" HorizontalAlignment="Left" Content="Add Doctor" FontSize="8"  Click="AddDoctor_Click"/>
+            <Button Margin="191,0,0,0" Width="80" Height="15" HorizontalAlignment="Left" Content="Update Doctor" FontSize="8"  Click="UpdateDoctor_Click"/>
+            <Button Margin="273,0,0,0" Width="80" Height="15" HorizontalAlignment="Left" Content="Delete Doctor" FontSize="8" Click="btnDeleteDoctor_Click"/>
+        </Grid>
+    </StackPanel>
+</UserControl>
