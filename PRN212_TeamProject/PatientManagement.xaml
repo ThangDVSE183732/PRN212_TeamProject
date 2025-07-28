@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:PRN212_TeamProject"
              mc:Ignorable="d" 
             >
-    <Grid Margin="0,10,0,0">
+    <Grid Margin="0,0,0,0">
         <Border   BorderBrush="Black" BorderThickness="1" Width="530" Height="280" Padding="20,10,20,10">
             <DataGrid x:Name="dgPatient" SelectionChanged="dgPatient_SelectedChanged" Margin="0,0,0,0" Height="210"/>
         </Border>

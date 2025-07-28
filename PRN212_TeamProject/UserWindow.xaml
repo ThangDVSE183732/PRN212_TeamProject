@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PRN212_TeamProject"
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         mc:Ignorable="d"
-        Title="UserWindow" Height="450" Width="800">
+        Title="UserWindow" Height="500" Width="800">
     <Grid>
         <DockPanel Background="#00BCD4" Width="200" HorizontalAlignment="Left" VerticalAlignment="Stretch" >
             <StackPanel>
@@ -16,7 +16,7 @@
                 <TextBlock Text="Infertility Treatment Management" FontSize="17" FontWeight="SemiBold" Foreground="White" TextAlignment="Center" Margin="0,0,0,15" TextWrapping="wrap"/>
 
                 <!--Chức năng-->
-                <StackPanel Orientation="Horizontal" Margin="29,50,0,0" VerticalAlignment="Center" >
+                <StackPanel Orientation="Horizontal" Margin="29,50,0,0" VerticalAlignment="Center" MouseLeftButtonDown="PatientProfile_Click">
                     <fa:IconBlock Icon="Chalkboard" FontSize="14" Foreground="White" Margin="0,0,30,0"></fa:IconBlock>
                     <TextBlock Text="Patient Profile" FontWeight="SemiBold" Foreground="White" FontSize="10"  />
                 </StackPanel>
@@ -42,7 +42,7 @@
                 <TextBlock Text="Welcome: User" FontSize="15" Margin="20,0,0,0" VerticalAlignment="Center" FontWeight="Medium" Foreground="White"/>
             </DockPanel>
             <!--Form-->
-            <ContentControl x:Name="MainContentControl" Margin="200,0,0,0"/>
+            <ContentControl x:Name="UserContentControl" Margin="200,0,0,0"/>
 
         </StackPanel>
     </Grid>
