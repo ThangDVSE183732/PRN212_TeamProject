@@ -19,7 +19,7 @@
                 <fa:IconBlock Icon="Chalkboard" FontSize="14" Foreground="White" Margin="0,0,30,0"></fa:IconBlock>
                 <TextBlock Text="Shift Management" FontWeight="SemiBold" Foreground="White" FontSize="10"  />
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="30,30,0,0" >
+                <StackPanel Orientation="Horizontal" Margin="30,30,0,0" MouseLeftButtonDown="PatientManagment_Click">
                 <fa:IconBlock Icon="User" FontSize="14" Foreground="White" Margin="0,0,31,0"></fa:IconBlock>
                 <TextBlock Text="Patient Management" FontWeight="SemiBold" Foreground="White" FontSize="10"/>
             </StackPanel>
