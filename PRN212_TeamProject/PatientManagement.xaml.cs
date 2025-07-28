@@ -10,23 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace PRN212_TeamProject
 {
     /// <summary>
-    /// Interaction logic for UserWindow.xaml
+    /// Interaction logic for PatientManagement.xaml
     /// </summary>
-    public partial class UserWindow : Window
+    public partial class PatientManagement : UserControl
     {
-        public UserWindow()
+        public PatientManagement()
         {
             InitializeComponent();
         }
 
-        private void PatientProfile_Click(object sender, MouseButtonEventArgs e)
+        private void dgPatient_SelectedChanged(object sender, SelectionChangedEventArgs e)
         {
-            UserContentControl.Content = new PatientProfileManagement();
+
         }
     }
 }
