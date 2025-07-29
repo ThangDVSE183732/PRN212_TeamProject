@@ -16,7 +16,7 @@
                 <TextBlock Text="Infertility Treatment Management" FontSize="17" FontWeight="SemiBold" Foreground="White" TextAlignment="Center" Margin="0,0,0,15" TextWrapping="wrap"/>
 
                 <!--Chức năng-->
-                <StackPanel Orientation="Horizontal" Margin="29,50,0,0" VerticalAlignment="Center" >
+                <StackPanel Orientation="Horizontal" Margin="29,50,0,0" VerticalAlignment="Center" MouseLeftButtonDown="ShiftManagement_Click">
                     <fa:IconBlock Icon="Chalkboard" FontSize="14" Foreground="White" Margin="0,0,30,0"></fa:IconBlock>
                     <TextBlock Text="Shift Management" FontWeight="SemiBold" Foreground="White" FontSize="10"  />
                 </StackPanel>
