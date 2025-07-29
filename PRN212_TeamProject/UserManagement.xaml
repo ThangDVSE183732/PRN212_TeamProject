@@ -9,10 +9,8 @@
     <StackPanel>
         <Border   BorderBrush="Black" BorderThickness="1" Width="530" Height="280" Padding="20,10,20,10">
             <ContentControl x:Name="UserContentControl" />
-
         </Border>
         <Grid>
-
             <Button Margin="27,0,0,0" Width="80" Height="15" HorizontalAlignment="Left" Content="Search Client" FontSize="8" Click="SearchClient_Click" />
             <Button Margin="109,0,0,0" Width="80" Height="15" HorizontalAlignment="Left" Content="Add Clinet" FontSize="8"  Click="AddClient_Click"/>
             <Button Margin="191,0,0,0" Width="80" Height="15" HorizontalAlignment="Left" Content="Update Client" FontSize="8"  Click="UpdateClient_Click"/>

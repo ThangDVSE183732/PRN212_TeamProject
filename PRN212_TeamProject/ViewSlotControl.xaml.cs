@@ -10,23 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace PRN212_TeamProject
 {
     /// <summary>
-    /// Interaction logic for ManagerWindow.xaml
+    /// Interaction logic for ViewSlotControl.xaml
     /// </summary>
-    public partial class ManagerWindow : Window
+    public partial class ViewSlotControl : UserControl
     {
-        public ManagerWindow()
+        public ViewSlotControl()
         {
             InitializeComponent();
         }
 
-        private void SlotManagement_Click(object sender, MouseButtonEventArgs e)
+        private void dgSlot_SelectedChanged(object sender, SelectionChangedEventArgs e)
         {
-            ManagementContentControl.Content = new SlotManagement();
+
         }
     }
 }

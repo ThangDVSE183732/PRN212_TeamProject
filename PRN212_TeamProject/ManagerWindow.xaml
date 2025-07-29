@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PRN212_TeamProject"
         mc:Ignorable="d"
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
-        Title="ManagerWindow" Height="450" Width="800">
+        Title="ManagerWindow" Height="500" Width="800">
     <Grid>
         <DockPanel Background="#00BCD4" Width="200" HorizontalAlignment="Left" VerticalAlignment="Stretch" >
             <StackPanel>
@@ -16,11 +16,16 @@
                 <TextBlock Text="Infertility Treatment Management" FontSize="17" FontWeight="SemiBold" Foreground="White" TextAlignment="Center" Margin="0,0,0,15" TextWrapping="wrap"/>
 
                 <!--Chức năng-->
-                <StackPanel Orientation="Horizontal" Margin="29,50,0,0" VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal" Margin="29,50,0,0" VerticalAlignment="Center" >
                     <fa:IconBlock Icon="Chalkboard" FontSize="14" Foreground="White" Margin="0,0,30,0"></fa:IconBlock>
                     <TextBlock Text="Shift Management" FontWeight="SemiBold" Foreground="White" FontSize="10"  />
                 </StackPanel>
-                
+
+                <StackPanel Orientation="Horizontal" Margin="30,30,0,0"  MouseLeftButtonDown="SlotManagement_Click">
+                    <fa:IconBlock Icon="User" FontSize="14" Foreground="White" Margin="0,0,31,0"></fa:IconBlock>
+                    <TextBlock Text="Slot Management" FontWeight="SemiBold" Foreground="White" FontSize="10"/>
+                </StackPanel>
+
                 <StackPanel Orientation="Horizontal" Margin="27,30,0,0" >
                     <fa:IconBlock Icon="Home"    FontSize="14" Foreground="White" Margin="0,0,29,0"></fa:IconBlock>
                     <TextBlock Text="Report" FontWeight="SemiBold" Foreground="White" FontSize="10"/>
@@ -38,7 +43,7 @@
                 <TextBlock Text="Welcome: Manager" FontSize="15" Margin="20,0,0,0" VerticalAlignment="Center" FontWeight="Medium" Foreground="White"/>
             </DockPanel>
             <!--Form-->
-            <ContentControl x:Name="MainContentControl" Margin="200,0,0,0"/>
+            <ContentControl x:Name="ManagementContentControl" Margin="200,0,0,0"/>
 
         </StackPanel>
     </Grid>
