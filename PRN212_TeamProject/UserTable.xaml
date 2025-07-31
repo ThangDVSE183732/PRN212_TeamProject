@@ -24,7 +24,8 @@
                       AlternatingRowBackground="#F0F0F0"
                       FontSize="13"
                       BorderThickness="0"
-                      VerticalScrollBarVisibility="Auto">
+                      VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Visible">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding UserId}" Width="Auto" />
                     <DataGridTextColumn Header="Full Name" Binding="{Binding FullName}" Width="Auto" />

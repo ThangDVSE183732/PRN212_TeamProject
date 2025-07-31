@@ -62,12 +62,19 @@ namespace DAL.Repositories
         public bool ExistByServiceName(string name)
         {
             return _context.Services.Any(s => s.Name == name);
+
         }
+
 
         public bool ExistsByServiceNameExceptId(string name, int id)
         {
             return _context.Services.Any(s => s.Name == name && s.ServiceId != id);
         }
 
+        public void DeleteService(Service service)
+        {
+            _context.Services.Remove(service);
+            _context.SaveChanges();
+        }
     }
 }

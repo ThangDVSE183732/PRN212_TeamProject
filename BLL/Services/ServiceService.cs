@@ -53,5 +53,10 @@ namespace BLL.Services
             return _serviceRepository.ExistsByServiceNameExceptId(serviceName, id);
         }
 
+        public void DeleteService(Service service)
+        {
+            _serviceRepository.DeleteService(service);
+        }
+
     }
 }
