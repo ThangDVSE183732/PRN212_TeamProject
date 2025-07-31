@@ -10,23 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace PRN212_TeamProject
 {
     /// <summary>
-    /// Interaction logic for StaffWindow.xaml
+    /// Interaction logic for ViewSheduleControl.xaml
     /// </summary>
-    public partial class StaffWindow : Window
+    public partial class ViewSheduleControl : UserControl
     {
-        public StaffWindow()
+        public ViewSheduleControl()
         {
             InitializeComponent();
         }
 
-        private void ScheduleManagement_Click(object sender, MouseButtonEventArgs e)
+        private void dgSchedule_SelectedChanged(object sender, SelectionChangedEventArgs e)
         {
-            MainContentControl.Content = new ScheduleManagement();
+
         }
     }
 }

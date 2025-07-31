@@ -39,8 +39,12 @@ namespace PRN212_TeamProject
                     {
                         r.ShiftId,
                         r.Name,
-                        r.StartTime,
-                        r.EndTime,
+                        StartTime = r.StartTime.HasValue
+                            ? DateTime.Today.Add(r.StartTime.Value.ToTimeSpan()).ToString("hh:mm tt")
+                            : "",
+                        EndTime = r.EndTime.HasValue
+                            ? DateTime.Today.Add(r.EndTime.Value.ToTimeSpan()).ToString("hh:mm tt")
+                            : "",
                         r.DateWork,
                         r.Status,
                         Doctor = r.Doctor != null ? r.Doctor.DoctorName : "Shift Empty"
