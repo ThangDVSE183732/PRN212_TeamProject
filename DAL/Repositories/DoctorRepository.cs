@@ -54,11 +54,12 @@ namespace DAL.Repositories
 
         public void UpdateDoctorNoReturn(Doctor doctor)
         {
-            Doctor existingDoctor = _context.Doctors.Find(doctor.DoctorId); // Tìm đúng theo PK
+            Doctor existingDoctor = _context.Doctors.Find(doctor.DoctorId);
             if (existingDoctor != null)
             {
                 // Chỉ gán giá trị từng field, không tạo mới instance
                 existingDoctor.DoctorName = doctor.DoctorName;
+                existingDoctor.Email = doctor.Email;
                 existingDoctor.Specialization = doctor.Specialization;
                 existingDoctor.Phone = doctor.Phone;
                 _context.SaveChanges();

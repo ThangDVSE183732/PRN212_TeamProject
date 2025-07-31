@@ -50,7 +50,7 @@ namespace PRN212_TeamProject
             string email = txtEmailAdress.Text.Trim();
             string phone = txtCustomerPhone.Text.Trim();
             string address = txtAddress.Text.Trim();
-            string password = txtPassword.Password.Trim();
+            string password = txtPassword.Password;
             DateTime? dob = txtCustomerBD.SelectedDate;
             string status = ((ComboBoxItem)cbCustomerStatus.SelectedItem)?.Content?.ToString() ?? "";
 
@@ -58,6 +58,12 @@ namespace PRN212_TeamProject
                 string.IsNullOrEmpty(phone) || string.IsNullOrEmpty(password) || dob == null)
             {
                 MessageBox.Show("Please Enter All Fields!", "Error", MessageBoxButton.OK);
+                return;
+            }
+
+            if (password.Length < 6)
+            {
+                MessageBox.Show("Password must be at least 6 characters long!", "Error", MessageBoxButton.OK);
                 return;
             }
 
@@ -77,7 +83,7 @@ namespace PRN212_TeamProject
             {
                 var updatedUser = new User
                 {
-                    UserId = _selectedUser.UserId, // rất quan trọng!
+                    UserId = _selectedUser.UserId,
                     FullName = fullName,
                     Email = email,
                     Phone = phone,
@@ -85,11 +91,17 @@ namespace PRN212_TeamProject
                     DateOfBirth = DateOnly.FromDateTime(dob.Value),
                     Password = password,
                     Status = status,
-                    RoleId = _selectedUser.RoleId // Giữ nguyên nếu bạn không sửa
+                    RoleId = _selectedUser.RoleId
                 };
 
-                _userService.UpdateUser(updatedUser);
-                MessageBox.Show("Update User Successfully!", "Success", MessageBoxButton.OK);
+                bool isUpdated = _userService.UpdateUser(updatedUser);
+                if (isUpdated)
+                {
+                    MessageBox.Show("Update User Successfully!", "Success", MessageBoxButton.OK);
+                } else
+                {
+                    MessageBox.Show("Update Fail!");
+                }
             }
             catch (Exception ex)
             {

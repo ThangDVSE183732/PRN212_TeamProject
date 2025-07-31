@@ -11,6 +11,6 @@
             <TextBox Height="20" Width="220"  HorizontalAlignment="Left" Margin="180,0,0,0" Name="txtSearch" />
             <Button Height="20" Width="60" Margin="380,0,0,0" Content="Search" Click="btnSearch_Click"/>
         </Grid>
-        <local:BookingTable x:Name="bookingTableControl" Height="280"/>
+        <local:BookingTable x:Name="bookingTableControl" Height="210"/>
     </StackPanel>
 </UserControl>
