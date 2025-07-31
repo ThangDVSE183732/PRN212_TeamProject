@@ -10,9 +10,9 @@ namespace DLL.Services
     {
         private readonly DoctorRepository _doctorRepository;
 
-        public DoctorService(Prn212Context context)
+        public DoctorService()
         {
-            _doctorRepository = new DoctorRepository(context);
+            _doctorRepository = new DoctorRepository();
         }
 
         public List<Doctor> GetAllDoctors()

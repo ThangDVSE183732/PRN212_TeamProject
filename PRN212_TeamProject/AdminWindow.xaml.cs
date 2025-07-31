@@ -38,6 +38,11 @@ namespace PRN212_TeamProject
             MainContentControl.Content = new DoctorManagement();
         }
 
+        private void ServiceManagment_Click(object sender, MouseButtonEventArgs e)
+        {
+            MainContentControl.Content = new ServiceManagement();
+        }
+
 
 
         //private void navToServicePage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
