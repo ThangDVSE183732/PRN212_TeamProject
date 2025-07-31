@@ -30,7 +30,6 @@ namespace PRN212_TeamProject
         public SearchClientControl()
         {
             InitializeComponent();
-            userTableControl.Visibility = Visibility.Collapsed;
         }
 
         public void ReloadUsersAfterDelete()

@@ -9,6 +9,7 @@ namespace PRN212_TeamProject
         public UserManagement()
         {
             InitializeComponent();
+            UserContentControl.Content = new SearchClientControl();
         }
 
         private void SearchClient_Click(object sender, RoutedEventArgs e)
@@ -60,7 +61,7 @@ namespace PRN212_TeamProject
                         var service = new UserService();
                         service.DeleteUser(selectedUser);
                         MessageBox.Show("User deleted successfully!", "Success", MessageBoxButton.OK);
-                        searchControl.ReloadUsersAfterDelete(); // Optional reload
+                        searchControl.ReloadUsersAfterDelete();
                     }
                     catch (Exception ex)
                     {

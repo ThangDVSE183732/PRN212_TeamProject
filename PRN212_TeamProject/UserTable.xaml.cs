@@ -40,7 +40,6 @@ namespace PRN212_TeamProject
             return dgUser.SelectedItem as User;
         }
 
-
         private void LoadUserData()
         {
             var users = _userService.GetUsers();
