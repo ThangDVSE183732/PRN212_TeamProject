@@ -32,7 +32,6 @@ namespace PRN212_TeamProject
         private void SearchDoctor_Click(object sender, RoutedEventArgs e)
         {
             DoctorContentControl.Content = new SearchDoctorControl();
-
         }
 
         private void AddDoctor_Click(object sender, RoutedEventArgs e)

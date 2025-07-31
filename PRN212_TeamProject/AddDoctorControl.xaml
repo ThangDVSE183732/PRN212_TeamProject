@@ -22,7 +22,6 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <!-- Cột trái -->
             <TextBlock Text="Doctor ID" Grid.Column="0" Grid.Row="0" />
             <TextBox x:Name="txtId" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Margin="0,0,10,0" Width="150" IsReadOnly="True"/>
 
@@ -35,7 +34,6 @@
             <TextBlock Text="Password:" Grid.Column="0" Grid.Row="6" VerticalAlignment="Center"/>
             <PasswordBox x:Name="txtPassword" Grid.Column="0" Grid.Row="7" Margin="0,0,10,0" HorizontalAlignment="Left" Width="150"/>
 
-            <!-- Cột phải -->
             <TextBlock Text="Doctor Status" Grid.Column="1" Grid.Row="0" />
             <ComboBox x:Name="cbCustomerStatus" Grid.Column="1" Grid.Row="1" Margin="0,0,10,0" HorizontalAlignment="Left" Width="150">
                 <ComboBoxItem Content="Active" Tag="1"/>
@@ -48,7 +46,6 @@
             <TextBlock Text="Telephone" Grid.Column="1" Grid.Row="4" Margin="1,5,0,0"/>
             <TextBox x:Name="txtCustomerPhone" Grid.Column="1" Grid.Row="5" Width="150" Margin="0,0,10,0" HorizontalAlignment="Left"/>
 
-            <!-- Button -->
             <Button Content="Create" Grid.Column="1" Grid.Row="7" Background="LightBlue" Width="100" HorizontalAlignment="Left" Click="btnCreate_Click"/>
         </Grid>
     </StackPanel>

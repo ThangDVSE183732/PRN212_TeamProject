@@ -25,7 +25,14 @@ namespace PRN212_TeamProject
             string specialization = txtSpecialization.Text.Trim();
             string email = txtEmail.Text.Trim();
             string phone = txtCustomerPhone.Text.Trim();
+            string password = txtPassword.Password;
             string status = ((ComboBoxItem)cbCustomerStatus.SelectedItem)?.Content?.ToString() ?? "";
+
+            if (password.Length < 6)
+            {
+                MessageBox.Show("Password must be at least 6 characters long!", "Error", MessageBoxButton.OK);
+                return;
+            }
 
             if (cbCustomerStatus.SelectedIndex == -1)
             {
@@ -61,7 +68,7 @@ namespace PRN212_TeamProject
                     Email = email,
                     Phone = phone,
                     Status = status,
-                    Password = "123456"
+                    Password = password,
                 };
 
                 _doctorService.CreateDoctor(newDoctor);
@@ -82,6 +89,7 @@ namespace PRN212_TeamProject
             txtSpecialization.Clear();
             txtEmail.Clear();
             txtCustomerPhone.Clear();
+            txtPassword.Clear();
             cbCustomerStatus.SelectedIndex = 0;
         }
     }

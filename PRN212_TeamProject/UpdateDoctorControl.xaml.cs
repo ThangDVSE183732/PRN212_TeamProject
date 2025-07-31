@@ -49,11 +49,17 @@ namespace PRN212_TeamProject
                 return;
             }
 
+            if (password.Length < 6)
+            {
+                MessageBox.Show("Password must be at least 6 characters long!", "Error", MessageBoxButton.OK);
+                return;
+            }
+
             try
             {
                 var updatedDoctor = new Doctor
                 {
-                    DoctorId = _selectedDoctor.DoctorId, // phải giữ nguyên để update đúng
+                    DoctorId = _selectedDoctor.DoctorId,
                     DoctorName = fullName,
                     Email = email,
                     Phone = phone,

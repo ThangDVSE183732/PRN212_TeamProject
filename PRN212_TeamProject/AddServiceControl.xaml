@@ -4,42 +4,46 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PRN212_TeamProject"
-             mc:Ignorable="d" 
-             >
+             mc:Ignorable="d">
     <StackPanel>
-        <StackPanel >
+        <StackPanel>
             <Grid Margin="50,15,10,0" Height="220">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-                    </Grid.RowDefinitions>
-                    <TextBlock Text="Full Name" Grid.Column="0" Grid.Row="0" />
-                    <TextBox x:Name="txtFullName" Grid.Column="0" Grid.Row="1"  Margin="0,0,20,0"/>
-                    <TextBlock Text="Password" Margin="1,5,0,0" Grid.Column="0" Grid.Row="2" />
-                    <TextBox x:Name="txtPassword" Grid.Column="0" Grid.Row="3"  Margin="0,0,20,0"/>
-                    <TextBlock  Text="Phone Number" Grid.Column="1" Grid.Row="0" />
-                    <ComboBox  x:Name="cbCustomerStatus" Grid.Column="1" Grid.Row="1"  Margin="0,0,40,0">
-                        <ComboBoxItem Content="Active" Tag="1"/>
-                        <ComboBoxItem Content="Banned" Tag="0"/>
-                    </ComboBox>
-                    <TextBlock Text="Email" Margin="1,5,0,0"  Grid.Column="0" Grid.Row="4" />
-                    <TextBox x:Name="txtEmail" Grid.Column="0" Grid.RowSpan="3" Grid.Row="5" Margin="0,0,20,0"  />
-                <Button Content="Create" Grid.Column="0" Grid.Row="9" Background="LightBlue" Width="150" HorizontalAlignment="Left"  Click="btnCreate_Click"/>
+                <TextBlock Text="Service Name" Grid.Column="0" Grid.Row="0" />
+                <TextBox x:Name="txtServiceName" Grid.Column="0" Grid.Row="1" Margin="0,0,20,0"/>
+
+                <TextBlock Text="Price" Margin="1,5,0,0" Grid.Column="0" Grid.Row="2" />
+                <TextBox x:Name="txtServicePrice" Grid.Column="0" Grid.Row="3" Margin="0,0,20,0"/>
+
+                <TextBlock Text="Description" Margin="1,5,0,0" Grid.Column="0" Grid.Row="4" />
+                <TextBox x:Name="txtServiceDescription" Grid.Column="0" Grid.Row="5" Grid.RowSpan="3" Margin="0,0,20,0" />
+
+                <TextBlock Text="Status" Grid.Column="1" Grid.Row="0" />
+                <ComboBox x:Name="cbServiceStatus" Grid.Column="1" Grid.Row="1" Margin="0,0,40,0">
+                    <ComboBoxItem Content="Active" Tag="ACTIVE"/>
+                    <ComboBoxItem Content="Inactive" Tag="INACTIVE"/>
+                </ComboBox>
+
+                <Button Content="Create" Grid.Column="0" Grid.Row="9"
+                        Width="150" HorizontalAlignment="Left"
+                        Click="btnCreate_Click"/>
             </Grid>
-            </StackPanel>
-
+        </StackPanel>
     </StackPanel>
 </UserControl>
