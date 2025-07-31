@@ -19,14 +19,35 @@ namespace PRN212_TeamProject
     /// </summary>
     public partial class StaffWindow : Window
     {
+        private BookManagement _formView;
+        private QrManagement _detailView;
+
         public StaffWindow()
         {
             InitializeComponent();
+
+            _formView = new BookManagement(NavigateToDetail);
+            _detailView = new QrManagement(NavigateBack);
+
+
         }
 
         private void ScheduleManagement_Click(object sender, MouseButtonEventArgs e)
         {
             MainContentControl.Content = new ScheduleManagement();
+        }
+        private void BookManagement_Click(object sender, MouseButtonEventArgs e)
+        {
+            NavigateBack();
+        }
+        private void NavigateToDetail()
+        {
+            MainContentControl.Content = _detailView;
+        }
+
+        private void NavigateBack()
+        {
+            MainContentControl.Content = _formView;
         }
     }
 }

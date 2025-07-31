@@ -12,6 +12,7 @@
     <None Remove="Img\Home.png" />
     <None Remove="Img\hotel_management.png" />
     <None Remove="Img\Infertility.png" />
+    <None Remove="qr.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +28,7 @@
     <Resource Include="Img\Home.png" />
     <Resource Include="Img\hotel_management.png" />
     <Resource Include="Img\Infertility.png" />
+    <Resource Include="qr.jpg" />
   </ItemGroup>
 
   <ItemGroup>
