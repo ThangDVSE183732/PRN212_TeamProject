@@ -55,18 +55,30 @@ namespace DAL.Repositories
 
         public bool UpdateUser(User user)
         {
-            User existingUser = _dbContext.Users.Find(user.UserId); // Tìm đúng theo PK
-            bool isSuccess = false;
-            if (existingUser != null)
+            try
             {
-                var tracker = _dbContext.Attach(existingUser);
-                tracker.State = EntityState.Modified;
-                _dbContext.SaveChanges();
-                _dbContext.ChangeTracker.Clear();
-                isSuccess = true;
+                var existing = _dbContext.Users.FirstOrDefault(u => u.UserId == user.UserId);
+                if (existing == null) return false;
+
+                existing.FullName = user.FullName;
+                existing.Email = user.Email;
+                existing.Phone = user.Phone;
+                existing.Address = user.Address;
+                existing.Password = user.Password;
+                existing.DateOfBirth = user.DateOfBirth;
+                existing.Status = user.Status;
+                existing.RoleId = user.RoleId;
+
+                int changed = _dbContext.SaveChanges();
+
+                return true;
             }
-            return isSuccess;
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
+
 
         public bool ExistsByEmailExceptId(string email, int id)
         {
