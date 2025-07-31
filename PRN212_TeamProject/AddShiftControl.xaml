@@ -6,7 +6,7 @@
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:local="clr-namespace:PRN212_TeamProject"
              mc:Ignorable="d" 
-             >
+             Loaded="DoctorLoader">
     <StackPanel>
 
         <Grid Margin="30,15,10,0" Height="220">
@@ -26,32 +26,32 @@
 
 
             </Grid.RowDefinitions>
-            <TextBlock Text="Customer ID" Grid.Column="0" Grid.Row="0" />
-            <TextBox x:Name="txtId" Grid.Column="0" Grid.Row="1"  Margin="0,0,20,0"/>
-            <TextBlock Text="CustomerFullName" Margin="1,5,0,0" Grid.Column="0" Grid.Row="2" />
-            <xctk:TimePicker Name="StartTime"
+            <TextBlock Text="Name" Grid.Column="0" Grid.Row="0" />
+            <TextBox x:Name="txtName" Grid.Column="0" Grid.Row="1"  Margin="0,0,20,0"/>
+            <TextBlock Text="Start Time" Margin="1,5,0,0" Grid.Column="0" Grid.Row="2" />
+            <xctk:TimePicker x:Name="txtStartTime"
                 Format="ShortTime"
                 Value="{Binding MyTime, Mode=TwoWay}"
                 Grid.Row="3" Grid.Column="0"
                 Margin="0,0,20,0"
                 />
-            <TextBlock  Text="CustomerStatus" Grid.Column="1" Grid.Row="0" />
-            <ComboBox  x:Name="cbCustomerStatus" Grid.Column="1" Grid.Row="1"  Margin="0,0,100,0">
+            <TextBlock  Text="Status" Grid.Column="1" Grid.Row="0" />
+            <ComboBox  x:Name="cnbStatus" Grid.Column="1" Grid.Row="1"  Margin="0,0,100,0">
                 <ComboBoxItem Content="Active" Tag="1"/>
                 <ComboBoxItem Content="Banned" Tag="0"/>
             </ComboBox>
-            <TextBlock Text="CustomerBirthday" Margin="1,5,0,0" Grid.Column="1" Grid.Row="2" />
-            <DatePicker x:Name="txtCustomerBD" Grid.Column="1" Grid.Row="3"  Margin="0,0,20,0"/>
-            <TextBlock Text="Address" Margin="1,5,0,0"  Grid.Column="0" Grid.Row="4" />
-            <xctk:TimePicker Name="EndTime"
+            <TextBlock Text="Date Work" Margin="1,5,0,0" Grid.Column="1" Grid.Row="2" />
+            <DatePicker x:Name="txtDateWork" Grid.Column="1" Grid.Row="3"  Margin="0,0,20,0"/>
+            <TextBlock Text="End Time" Margin="1,5,0,0"  Grid.Column="0" Grid.Row="4" />
+            <xctk:TimePicker x:Name="txtEndTime"
                 Format="ShortTime"
                 Value="{Binding MyTime, Mode=TwoWay}"
                 Grid.Row="5" Grid.Column="0"
                 Margin="0,0,20,0"
     />
-            <TextBlock Text="Telephone" Grid.Column="1" Grid.Row="4" Margin="1,5,0,0"/>
-            <ComboBox  x:Name="cbCustomer" Grid.Column="1" Grid.Row="5"  Margin="0,0,50,0"/>
-            <Button Content="Create" Grid.Column="0" Grid.Row="7" Background="LightBlue" Width="150" HorizontalAlignment="Left" />
+            <TextBlock Text="Doctor" Grid.Column="1" Grid.Row="4" Margin="1,5,0,0"/>
+            <ComboBox  x:Name="cnbDoctor" Grid.Column="1" Grid.Row="5"  Margin="0,0,50,0"/>
+            <Button Content="Create" Grid.Column="0" Grid.Row="7" Background="LightBlue" Width="150" HorizontalAlignment="Left" Click="btnCreate_Click" />
         </Grid>
     </StackPanel>
 </UserControl>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,17 +21,21 @@ namespace PRN212_TeamProject
     /// </summary>
     public partial class ShiftManagement : UserControl
     {
+        private Shift selectedShift;
+        private ViewShiftControl view = new ViewShiftControl();
+
         public ShiftManagement()
         {
             InitializeComponent();
-            ShiftContentControl.Content = new ViewShiftControl();
+            view.ShiftSelected += OnShiftSelected;
+            ShiftContentControl.Content = view;
 
         }
 
         private void ViewShift_Click(object sender, RoutedEventArgs e)
         {
-            ShiftContentControl.Content = new ViewShiftControl();
-
+            view.ShiftSelected += OnShiftSelected;
+            ShiftContentControl.Content = view;
         }
 
         private void AddShift_Click(object sender, RoutedEventArgs e)
@@ -47,6 +52,11 @@ namespace PRN212_TeamProject
         private void btnDeleteShift_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void OnShiftSelected(Shift shift)
+        {
+            selectedShift = shift;
         }
     }
 }

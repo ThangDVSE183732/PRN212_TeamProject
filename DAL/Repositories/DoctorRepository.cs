@@ -1,4 +1,5 @@
 ﻿using DAL.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,16 +8,17 @@ namespace DAL.Repositories
 {
     public class DoctorRepository
     {
-        private readonly Prn212Context _context;
+        private  Prn212Context _context;
 
-        public DoctorRepository(Prn212Context context)
+        public DoctorRepository()
         {
-            _context = context;
+            _context = new Prn212Context();
         }
 
         public List<Doctor> GetAllDoctors()
         {
-            return _context.Doctors.ToList();
+            return _context.Doctors.AsNoTracking().ToList();
+
         }
 
         public Doctor GetDoctorById(int doctorId)
