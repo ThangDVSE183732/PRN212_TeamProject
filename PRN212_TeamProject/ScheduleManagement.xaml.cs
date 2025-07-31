@@ -23,14 +23,22 @@ namespace PRN212_TeamProject
         public ScheduleManagement()
         {
             InitializeComponent();
+            ScheduleContentControl.Content = new ViewSheduleControl();
+
         }
 
         private void ViewSchedule_Click(object sender, RoutedEventArgs e)
         {
-
+            ScheduleContentControl.Content = new ViewSheduleControl();
         }
 
         private void UpdateSchedule_Click(object sender, RoutedEventArgs e)
+        {
+            ScheduleContentControl.Content = new UpdateScheduleControl();
+
+        }
+
+        private void DeleteSchedule_Click(object sender, RoutedEventArgs e)
         {
 
         }

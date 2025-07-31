@@ -13,6 +13,8 @@
         <Grid>
             <Button Margin="27,0,0,0" Width="80" Height="15" HorizontalAlignment="Left" Content="View schedule" FontSize="8" Click="ViewSchedule_Click" />
             <Button Margin="109,0,0,0" Width="80" Height="15" HorizontalAlignment="Left" Content="Update Schedule" FontSize="8"  Click="UpdateSchedule_Click"/>
+            <Button Margin="191,0,0,0" Width="80" Height="15" HorizontalAlignment="Left" Content="Delete Schedule" FontSize="8"  Click="DeleteSchedule_Click"/>
+
         </Grid>
     </StackPanel>
 </UserControl>

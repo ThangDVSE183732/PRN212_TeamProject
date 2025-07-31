@@ -1,4 +1,5 @@
-﻿using DAL.Entities;
+﻿using BLL.Services;
+using DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,12 +24,14 @@ namespace PRN212_TeamProject
     {
         private Shift selectedShift;
         private ViewShiftControl view = new ViewShiftControl();
+        private ShiftService shiftService;
 
         public ShiftManagement()
         {
             InitializeComponent();
             view.ShiftSelected += OnShiftSelected;
             ShiftContentControl.Content = view;
+            shiftService = new ShiftService();
 
         }
 
@@ -45,13 +48,38 @@ namespace PRN212_TeamProject
 
         private void UpdateShift_Click(object sender, RoutedEventArgs e)
         {
-            ShiftContentControl.Content = new UpdateShiftControl();
+            ShiftContentControl.Content = new UpdateShiftControl(selectedShift);
 
         }
 
         private void btnDeleteShift_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                MessageBoxResult msg = MessageBox.Show("Do you want delete shift?", "Delete", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
+                if (msg == MessageBoxResult.Yes)
+                {
+
+                    if (selectedShift != null)
+                    {
+                        shiftService.DeleteShift(selectedShift.ShiftId);
+                        MessageBox.Show("Shift deleted successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                        view.loadDataInit();
+                        ShiftContentControl.Content = view;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please choose at least one shift to delete", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void OnShiftSelected(Shift shift)
