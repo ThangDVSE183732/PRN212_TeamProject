@@ -10,26 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace PRN212_TeamProject
 {
     /// <summary>
-    /// Interaction logic for StaffWindow.xaml
+    /// Interaction logic for ScheduleManagement.xaml
     /// </summary>
-    public partial class StaffWindow : Window
+    public partial class QrManagement : UserControl
     {
-        private BookManagement _formView;
-        private QrManagement _detailView;
+        private readonly Action _onBack;
 
-        public StaffWindow()
+        public QrManagement(Action onBack)
         {
             InitializeComponent();
+            _onBack = onBack;
         }
 
-        private void ScheduleManagement_Click(object sender, MouseButtonEventArgs e)
+        private void Back_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            MainContentControl.Content = new ScheduleManagement();
+            _onBack.Invoke();
         }
+
     }
 }

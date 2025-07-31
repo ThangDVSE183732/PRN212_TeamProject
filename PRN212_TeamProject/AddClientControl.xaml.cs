@@ -35,7 +35,7 @@ namespace PRN212_TeamProject
             string email = txtEmailAdress.Text.Trim();
             string phone = txtCustomerPhone.Text.Trim();
             string address = txtAddress.Text.Trim();
-            string password = txtPassword.Password.Trim();
+            string password = txtPassword.Password;
             DateTime? dob = txtCustomerBD.SelectedDate;
             string status = ((ComboBoxItem)cbCustomerStatus.SelectedItem)?.Content?.ToString() ?? "";
 
@@ -61,6 +61,12 @@ namespace PRN212_TeamProject
             if (_userService.ExistsByPhone(phone))
             {
                 MessageBox.Show("Used Phone Number!", "Error", MessageBoxButton.OK);
+                return;
+            }
+
+            if (password.Length < 6)
+            {
+                MessageBox.Show("Password must be at least 6 characters long!", "Error", MessageBoxButton.OK);
                 return;
             }
 

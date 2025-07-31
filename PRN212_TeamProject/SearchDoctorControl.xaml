@@ -8,6 +8,7 @@
             <Button Content="Search" Width="60" Height="20" Margin="380,0,0,0" Click="btnSearch_Click"/>
         </Grid>
 
-        <local:DoctorTable x:Name="doctorTableControl" Height="280"/>
+        <local:DoctorTable x:Name="doctorTableControl" Height="210"/>
+
     </StackPanel>
 </UserControl>
