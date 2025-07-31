@@ -57,6 +57,11 @@ namespace DAL.Repositories
             return _context.Shifts.Find(id);
         }
 
+        public Shift GetShiftByDoctorId(int id)
+        {
+            return _context.Shifts.FirstOrDefault(c => c.DoctorId == id);
+        }
+
         public bool UpdateShift(Shift shift)
         {
             bool isSuccess = false;

@@ -21,6 +21,7 @@ namespace PRN212_TeamProject
         public DoctorWindow()
         {
             InitializeComponent();
+            DoctorContentControl.Content = new ScheduleWorkManagerment();
             //try
             //{
             //    _doctorService = new DoctorService(new Prn212Context());
@@ -36,10 +37,15 @@ namespace PRN212_TeamProject
             //}
         }
 
-        private void PatientManagment_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void ScheduleWork_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            DoctorContentControl.Content = new PatientManagement();
+            DoctorContentControl.Content = new ScheduleWorkManagerment();
         }
+
+        //private void PatientManagment_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        //{
+        //    DoctorContentControl.Content = new PatientManagement();
+        //}
 
 
 

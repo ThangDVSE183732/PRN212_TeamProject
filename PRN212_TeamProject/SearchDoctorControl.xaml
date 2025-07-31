@@ -9,6 +9,5 @@
         </Grid>
 
         <local:DoctorTable x:Name="doctorTableControl" Height="280"/>
-
     </StackPanel>
 </UserControl>

@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace PRN212_TeamProject
+{
+    /// <summary>
+    /// Interaction logic for ViewScheduleWorkControl.xaml
+    /// </summary>
+    public partial class ViewScheduleWorkControl : UserControl
+    {
+        public ViewScheduleWorkControl()
+        {
+            InitializeComponent();
+        }
+
+        private void ScheduleWorkLoad(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void dgScheduleWork_SelectedChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+    }
+}
