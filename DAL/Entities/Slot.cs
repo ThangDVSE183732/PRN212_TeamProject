@@ -18,4 +18,18 @@ public partial class Slot
     public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();
 
     public virtual Shift Shift { get; set; } = null!;
+
+    public string DisplayTime
+    {
+        get
+        {
+            if(StartTime.HasValue && EndTime.HasValue)
+            {
+                return  $"{StartTime.Value.ToString("HH:mm")} - {EndTime.Value.ToString("HH:mm")}";
+            }else
+            {
+                return "No Time Set";
+            }
+        }
+    }
 }

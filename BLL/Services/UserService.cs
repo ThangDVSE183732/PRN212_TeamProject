@@ -46,9 +46,9 @@ namespace BLL.Services
             return _userRepo.GetUsers();
         }
 
-        public void UpdateUser(User user)
+        public bool UpdateUser(User user)
         {
-            _userRepo.UpdateUser(user);
+            return _userRepo.UpdateUser(user);
         }
 
         public bool ExistsByEmailExceptId(string email, int id)

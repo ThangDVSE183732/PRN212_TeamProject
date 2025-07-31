@@ -9,6 +9,8 @@
     <StackPanel>
         <Border BorderBrush="Black" BorderThickness="1" Width="530" Height="280" Padding="20,10,20,10">
             <ContentControl x:Name="UserContentControl"/>
+
+
         </Border>
 
         <Grid>

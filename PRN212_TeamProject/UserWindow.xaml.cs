@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL.Services;
+using DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,32 @@ namespace PRN212_TeamProject
     /// </summary>
     public partial class UserWindow : Window
     {
-        public UserWindow()
+        private User _user;
+        private PatientService patientService;
+        
+        public UserWindow(User user)
         {
             InitializeComponent();
+            _user = user;
+            patientService = new PatientService();
+        }
+
+        private void PatientProfile_Click(object sender, MouseButtonEventArgs e)
+        {
+            Patient? patient = patientService.GetPatientProfile(_user.Email, _user.Password);
+            UserContentControl.Content = new PatientProfileManagement(patient);
+        }
+
+        private void UserProfile_Click(object sender, MouseButtonEventArgs e)
+        {
+            UserContentControl.Content = new UserProfileControl(_user);
+
+        }
+
+        private void BookingService_Click(object sender, MouseButtonEventArgs e)
+        {
+            UserContentControl.Content = new BookingServiceControl();
+
         }
     }
 }

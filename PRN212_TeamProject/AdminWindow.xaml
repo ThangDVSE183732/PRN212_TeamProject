@@ -24,7 +24,7 @@
                     <fa:IconBlock Icon="User" FontSize="14" Foreground="White" Margin="0,0,31,0"></fa:IconBlock>
                     <TextBlock Text="Doctor Management" FontWeight="SemiBold" Foreground="White" FontSize="10"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="30,30,0,0" >
+                <StackPanel Orientation="Horizontal" Margin="30,30,0,0" MouseLeftButtonDown="ServiceManagment_Click">
                     <fa:IconBlock Icon="Building" FontSize="14" Foreground="White" Margin="0,0,33,0"></fa:IconBlock>
                     <TextBlock Text="Service Management" FontWeight="SemiBold" Foreground="White" FontSize="10"/>
                 </StackPanel>

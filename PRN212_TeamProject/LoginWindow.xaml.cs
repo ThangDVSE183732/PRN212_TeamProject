@@ -43,11 +43,39 @@ namespace PRN212_TeamProject
                 MessageBox.Show("Invalid Email Or Password", "Login Error", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
                 return;
             }
-            if (user != null)
+            if (user.RoleId != null)
             {
-                AdminWindow adminWindow = new();
-                adminWindow.Auth = user;
-                adminWindow.Show();
+                switch(user.RoleId)
+                {
+                    case 1:
+                        AdminWindow admin = new AdminWindow();
+                        admin.Show();
+                        this.Close();
+                        break;
+                    case 2:
+                        ManagerWindow manager = new ManagerWindow();
+                        manager.Show();
+                        this.Close();
+                        break;
+                    case 3:
+                        DoctorWindow doctor = new DoctorWindow();
+                        doctor.Show();
+                        this.Close();
+                        break;
+                    case 4:
+                        StaffWindow staff = new StaffWindow();
+                        staff.Show();
+                        this.Close();
+                        break;
+                    case 5:
+                        UserWindow client = new UserWindow(user);
+                        client.Show();
+                        this.Close();
+                        break;
+                    default:
+                        MessageBox.Show("You do not have permission to access this application.", "Access Denied", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                }
             }
            
             this.Close();
