@@ -23,6 +23,8 @@ namespace PRN212_TeamProject
         public ShiftManagement()
         {
             InitializeComponent();
+            ShiftContentControl.Content = new ViewShiftControl();
+
         }
 
         private void ViewShift_Click(object sender, RoutedEventArgs e)

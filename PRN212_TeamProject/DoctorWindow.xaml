@@ -17,7 +17,7 @@
             <!--Chức năng-->
             <StackPanel Orientation="Horizontal" Margin="29,50,0,0" VerticalAlignment="Center" >
                 <fa:IconBlock Icon="Chalkboard" FontSize="14" Foreground="White" Margin="0,0,30,0"></fa:IconBlock>
-                <TextBlock Text="Shift Management" FontWeight="SemiBold" Foreground="White" FontSize="10"  />
+                <TextBlock Text="Schedule Work" FontWeight="SemiBold" Foreground="White" FontSize="10"  />
             </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="30,30,0,0" MouseLeftButtonDown="PatientManagment_Click">
                 <fa:IconBlock Icon="User" FontSize="14" Foreground="White" Margin="0,0,31,0"></fa:IconBlock>
@@ -38,7 +38,7 @@
         <!--Top bar-->
         <TextBlock Text="Log Out" TextDecorations="Underline" Height="20"  Width="50" FontWeight="Medium" FontSize="12" Margin="0,15,70,10" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="LightBlue" Cursor="Hand"/>
         <DockPanel Width="600"  Height="65"  Background="#00BCD4" Margin="200,0,0,25" >
-            <TextBlock Text="Welcome: Admin" FontSize="15" Margin="20,0,0,0" VerticalAlignment="Center" FontWeight="Medium" Foreground="White"/>
+            <TextBlock Text="Welcome: Doctor" FontSize="15" Margin="20,0,0,0" VerticalAlignment="Center" FontWeight="Medium" Foreground="White"/>
         </DockPanel>
         <!--Form-->
         <ContentControl x:Name="DoctorContentControl" Margin="200,0,0,0"/>

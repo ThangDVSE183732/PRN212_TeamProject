@@ -35,7 +35,7 @@ namespace DAL.Repositories
 
         public User? GetUserAccount(string email, string password)
         {
-            return _dbContext.Users.FirstOrDefault(x => x.Email == email && x.Password == password );
+            return _dbContext.Users.Include(u => u.Role).FirstOrDefault(x => x.Email == email && x.Password == password );
         }
 
         public List<User> GetUsers()
@@ -53,22 +53,19 @@ namespace DAL.Repositories
             return _dbContext.Users.Any(u => u.Phone == phone);
         }
 
-        public void UpdateUser(User user)
+        public bool UpdateUser(User user)
         {
             User existingUser = _dbContext.Users.Find(user.UserId); // Tìm đúng theo PK
+            bool isSuccess = false;
             if (existingUser != null)
             {
-                // Chỉ gán giá trị từng field, không tạo mới instance
-                existingUser.FullName = user.FullName;
-                existingUser.Address = user.Address;
-                existingUser.Email = user.Email;
-                existingUser.Phone = user.Phone;
-                existingUser.DateOfBirth = user.DateOfBirth;
-                existingUser.RoleId = user.RoleId;
-                existingUser.Password = user.Password;
-                existingUser.Status = user.Status;
+                var tracker = _dbContext.Attach(existingUser);
+                tracker.State = EntityState.Modified;
                 _dbContext.SaveChanges();
+                _dbContext.ChangeTracker.Clear();
+                isSuccess = true;
             }
+            return isSuccess;
         }
 
         public bool ExistsByEmailExceptId(string email, int id)
@@ -81,5 +78,11 @@ namespace DAL.Repositories
             return _dbContext.Users.Any(u => u.Phone == phone && u.UserId != id);
         }
 
+        public User GetUserById(int id) 
+        {
+            return _dbContext.Users.Find(id);
+        }
+
+        
     }
 }
