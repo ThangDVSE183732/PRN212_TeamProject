@@ -8,7 +8,6 @@
              mc:Ignorable="d" 
              Loaded="DoctorLoader">
     <StackPanel>
-
         <Grid Margin="30,15,10,0" Height="220">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>

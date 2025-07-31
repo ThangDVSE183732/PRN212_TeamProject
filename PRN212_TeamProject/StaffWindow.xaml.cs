@@ -23,5 +23,10 @@ namespace PRN212_TeamProject
         {
             InitializeComponent();
         }
+
+        private void ScheduleManagement_Click(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

@@ -74,7 +74,8 @@ namespace PRN212_TeamProject
                 newShift.StartTime = TimeOnly.FromDateTime(txtStartTime.Value.Value);
                 newShift.EndTime = TimeOnly.FromDateTime(txtEndTime.Value.Value);
                 newShift.DateWork = DateOnly.FromDateTime(txtDateWork.SelectedDate ?? DateTime.Today);
-                newShift.Status = selectedStatus?.ToString() ?? "";
+                newShift.DoctorId = int.Parse(cnbDoctor.SelectedValue.ToString());
+                newShift.Status = selectedStatus?.Content.ToString() ?? "";
                 if (shiftService.CreateShift(newShift))
                 {
                     MessageBox.Show("Shift created successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
