@@ -18,31 +18,20 @@ namespace PRN212_TeamProject
     /// <summary>
     /// Interaction logic for ScheduleManagement.xaml
     /// </summary>
-    public partial class ScheduleManagement : UserControl
+    public partial class QrManagement : UserControl
     {
+        private readonly Action _onBack;
 
-        public ScheduleManagement()
+        public QrManagement(Action onBack)
         {
             InitializeComponent();
-            ScheduleContentControl.Content = new ViewSheduleControl();
-
+            _onBack = onBack;
         }
 
-        private void ViewSchedule_Click(object sender, RoutedEventArgs e)
+        private void Back_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ScheduleContentControl.Content = new ViewSheduleControl();
+            _onBack.Invoke();
         }
 
-        private void UpdateSchedule_Click(object sender, RoutedEventArgs e)
-        {
-            ScheduleContentControl.Content = new UpdateScheduleControl();
-
-        }
-
-       
-        private void DeleteSchedule_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

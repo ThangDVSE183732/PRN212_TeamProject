@@ -20,6 +20,10 @@
                     <fa:IconBlock Icon="Chalkboard" FontSize="14" Foreground="White" Margin="0,0,30,0"></fa:IconBlock>
                     <TextBlock Text="Schedule Management" FontWeight="SemiBold" Foreground="White" FontSize="10"  />
                 </StackPanel>
+                <StackPanel MouseLeftButtonDown="BookManagement_Click" Orientation="Horizontal" Margin="28,30,0,0">
+                    <fa:IconBlock Icon="Cog"    FontSize="14" Foreground="White" Margin="0,0,29,0" ></fa:IconBlock>
+                    <TextBlock Text="Book Schedule" FontWeight="SemiBold" Foreground="White" FontSize="10"/>
+                </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="27,30,0,0" >
                     <fa:IconBlock Icon="Home"    FontSize="14" Foreground="White" Margin="0,0,29,0"></fa:IconBlock>
                     <TextBlock Text="Report" FontWeight="SemiBold" Foreground="White" FontSize="10"/>
