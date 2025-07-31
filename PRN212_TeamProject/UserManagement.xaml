@@ -1,22 +1,25 @@
 ﻿<UserControl x:Class="PRN212_TeamProject.UserManagement"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:PRN212_TeamProject"
-             mc:Ignorable="d" 
-             >
+             mc:Ignorable="d">
+
     <StackPanel>
-        <Border   BorderBrush="Black" BorderThickness="1" Width="530" Height="280" Padding="20,10,20,10">
-            <ContentControl x:Name="UserContentControl" />
-
+        <Border BorderBrush="Black" BorderThickness="1" Width="530" Height="280" Padding="20,10,20,10">
+            <ContentControl x:Name="UserContentControl"/>
         </Border>
-        <Grid>
 
-            <Button Margin="27,0,0,0" Width="80" Height="15" HorizontalAlignment="Left" Content="Search Client" FontSize="8" Click="SearchClient_Click" />
-            <Button Margin="109,0,0,0" Width="80" Height="15" HorizontalAlignment="Left" Content="Add Clinet" FontSize="8"  Click="AddClient_Click"/>
-            <Button Margin="191,0,0,0" Width="80" Height="15" HorizontalAlignment="Left" Content="Update Client" FontSize="8"  Click="UpdateClient_Click"/>
-            <Button Margin="273,0,0,0" Width="80" Height="15" HorizontalAlignment="Left" Content="Delete Client" FontSize="8" Click="btnDeleteCusomter_Click"/>
+        <Grid>
+            <Button Margin="27,0,0,0" Width="80" Height="15" HorizontalAlignment="Left"
+                    Content="Search Client" FontSize="8" Click="SearchClient_Click" />
+            <Button Margin="109,0,0,0" Width="80" Height="15" HorizontalAlignment="Left"
+                    Content="Add Client" FontSize="8" Click="AddClient_Click" />
+            <Button Margin="191,0,0,0" Width="80" Height="15" HorizontalAlignment="Left"
+                    Content="Update Client" FontSize="8" Click="UpdateClient_Click" />
+            <Button Margin="273,0,0,0" Width="80" Height="15" HorizontalAlignment="Left"
+                    Content="Delete Client" FontSize="8" Click="DeleteClient_Click"/>
         </Grid>
     </StackPanel>
 </UserControl>
