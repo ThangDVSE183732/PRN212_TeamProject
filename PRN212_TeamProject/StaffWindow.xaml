@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PRN212_TeamProject"
         mc:Ignorable="d"
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
-        Title="StaffWindow" Height="450" Width="800">
+        Title="StaffWindow" Height="500" Width="800">
     <Grid>
         <DockPanel Background="#00BCD4" Width="200" HorizontalAlignment="Left" VerticalAlignment="Stretch" >
             <StackPanel>

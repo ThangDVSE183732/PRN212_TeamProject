@@ -22,6 +22,8 @@ namespace PRN212_TeamProject
         public StaffWindow()
         {
             InitializeComponent();
+            MainContentControl.Content = new ScheduleManagement();
+
         }
 
         private void ScheduleManagement_Click(object sender, MouseButtonEventArgs e)
