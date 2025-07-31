@@ -18,7 +18,7 @@
                 <!--Chức năng-->
                 <StackPanel Orientation="Horizontal" Margin="29,50,0,0" VerticalAlignment="Center" >
                     <fa:IconBlock Icon="Chalkboard" FontSize="14" Foreground="White" Margin="0,0,30,0"></fa:IconBlock>
-                    <TextBlock Text="Booking Management" FontWeight="SemiBold" Foreground="White" FontSize="10"  />
+                    <TextBlock Text="Schedule Management" FontWeight="SemiBold" Foreground="White" FontSize="10"  />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="27,30,0,0" >
                     <fa:IconBlock Icon="Home"    FontSize="14" Foreground="White" Margin="0,0,29,0"></fa:IconBlock>

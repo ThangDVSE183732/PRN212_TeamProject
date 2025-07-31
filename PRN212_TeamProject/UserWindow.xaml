@@ -20,15 +20,16 @@
                     <fa:IconBlock Icon="Chalkboard" FontSize="14" Foreground="White" Margin="0,0,30,0"></fa:IconBlock>
                     <TextBlock Text="Patient Profile" FontWeight="SemiBold" Foreground="White" FontSize="10"  />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="30,30,0,0" >
+                <StackPanel Orientation="Horizontal" Margin="30,30,0,0" MouseLeftButtonDown="BookingService_Click">
                     <fa:IconBlock Icon="User" FontSize="14" Foreground="White" Margin="0,0,31,0"></fa:IconBlock>
                     <TextBlock Text="Booking Service" FontWeight="SemiBold" Foreground="White" FontSize="10"/>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal" Margin="27,30,0,0" >
+                <StackPanel Orientation="Horizontal" Margin="27,30,0,0" MouseLeftButtonDown="UserProfile_Click">
                     <fa:IconBlock Icon="Home"    FontSize="14" Foreground="White" Margin="0,0,29,0"></fa:IconBlock>
-                    <TextBlock Text="Report" FontWeight="SemiBold" Foreground="White" FontSize="10"/>
+                    <TextBlock Text="User Profile" FontWeight="SemiBold" Foreground="White" FontSize="10"/>
                 </StackPanel>
+
                 <StackPanel Orientation="Horizontal" Margin="28,30,0,0">
                     <fa:IconBlock Icon="Cog"    FontSize="14" Foreground="White" Margin="0,0,29,0"></fa:IconBlock>
                     <TextBlock Text="Setting" FontWeight="SemiBold" Foreground="White" FontSize="10"/>
