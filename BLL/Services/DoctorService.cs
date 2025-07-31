@@ -20,50 +20,24 @@ namespace DLL.Services
             return _doctorRepository.GetAllDoctors();
         }
 
+        public void DeleteDoctor(Doctor doctor)
+        {
+            _doctorRepository.DeleteDoctor(doctor);
+        }
+
         public Doctor GetDoctorById(int doctorId)
         {
             return _doctorRepository.GetDoctorById(doctorId);
         }
 
-        public bool CreateDoctor(Doctor doctor)
+        public void CreateDoctor(Doctor doctor)
         {
-            if (string.IsNullOrWhiteSpace(doctor.DoctorName)
-                || string.IsNullOrWhiteSpace(doctor.Phone)
-                || string.IsNullOrWhiteSpace(doctor.Specialization))
-                return false;
-
-            if (!ValidatePhone(doctor.Phone)) return false;
-            //if (!ValidateLicenseNumber(doctor.LicenseNumber)) return false;
-            //if (!ValidateExperience(doctor.Experience)) return false;
-
-            if (_doctorRepository.PhoneExists(doctor.Phone)) return false;
-
-            //if (!string.IsNullOrEmpty(doctor.LicenseNumber) &&
-            //    _doctorRepository.LicenseNumberExists(doctor.LicenseNumber)) return false;
-
-            doctor.Status = "ACTIVE";
-
-            return _doctorRepository.CreateDoctor(doctor);
+            _doctorRepository.CreateDoctor(doctor);
         }
 
-
-        public bool UpdateDoctor(Doctor doctor)
+        public void UpdateDoctorNoReturn(Doctor doctor)
         {
-            try
-            {
-                if (string.IsNullOrEmpty(doctor.DoctorName) ||
-                    string.IsNullOrEmpty(doctor.Phone) ||
-                    string.IsNullOrEmpty(doctor.Specialization))
-                {
-                    return false;
-                }
-
-                return _doctorRepository.UpdateDoctor(doctor);
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            _doctorRepository.UpdateDoctorNoReturn(doctor);
         }
 
         public bool BanDoctor(int doctorId)
@@ -113,6 +87,16 @@ namespace DLL.Services
         public bool ValidateExperience(int? experience)
         {
             return !experience.HasValue || experience >= 0;
+        }
+
+        public bool ExistsByPhone(string phone)
+        {
+            return _doctorRepository.ExistsByPhone(phone);
+        }
+
+        public bool ExistsByEmail(string email)
+        {
+            return _doctorRepository.ExistsByEmail(email);
         }
 
         public List<string> GetUniqueSpecializations()

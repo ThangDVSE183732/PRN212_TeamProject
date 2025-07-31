@@ -4,10 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PRN212_TeamProject"
-             mc:Ignorable="d" 
-            >
+             mc:Ignorable="d">
     <StackPanel>
-
         <Grid Margin="30,15,10,0" Height="220">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -22,26 +20,33 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
-
-
             </Grid.RowDefinitions>
-            <TextBlock Text="Customer ID" Grid.Column="0" Grid.Row="0" />
-            <TextBox x:Name="txtId" Grid.Column="0" Grid.Row="1"  Margin="0,0,20,0"/>
-            <TextBlock Text="CustomerFullName" Margin="1,5,0,0" Grid.Column="0" Grid.Row="2" />
-            <TextBox x:Name="txtCustomerFullName" Grid.Column="0" Grid.Row="3"  Margin="0,0,20,0"/>
-            <TextBlock  Text="CustomerStatus" Grid.Column="1" Grid.Row="0" />
-            <ComboBox  x:Name="cbCustomerStatus" Grid.Column="1" Grid.Row="1"  Margin="0,0,100,0">
+
+            <TextBlock Text="Doctor ID" Grid.Column="0" Grid.Row="0" />
+            <TextBox x:Name="txtId" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Margin="0,0,10,0" Width="150" IsReadOnly="True"/>
+
+            <TextBlock Text="Doctor FullName" Margin="1,5,0,0" Grid.Column="0" Grid.Row="2" />
+            <TextBox x:Name="txtCustomerFullName" Grid.Column="0" Grid.Row="3" Margin="0,0,10,0" HorizontalAlignment="Left" Width="150"/>
+
+            <TextBlock Text="Specialization" Margin="1,5,0,0" Grid.Column="0" Grid.Row="4" />
+            <TextBox x:Name="txtSpecialization" Grid.Column="0" Grid.Row="5" Margin="0,0,10,0" HorizontalAlignment="Left" Width="150"/>
+
+            <TextBlock Text="Password" Grid.Column="0" Grid.Row="6" VerticalAlignment="Center"/>
+            <PasswordBox x:Name="txtPassword" Grid.Column="0" Grid.Row="7" Margin="0,0,10,0" HorizontalAlignment="Left" Width="150"/>
+
+            <TextBlock Text="Doctor Status" Grid.Column="1" Grid.Row="0" />
+            <ComboBox x:Name="cbCustomerStatus" Grid.Column="1" Grid.Row="1" Margin="0,0,10,0" HorizontalAlignment="Left" Width="150">
                 <ComboBoxItem Content="Active" Tag="1"/>
                 <ComboBoxItem Content="Banned" Tag="0"/>
             </ComboBox>
-            <TextBlock Text="CustomerBirthday" Margin="1,5,0,0" Grid.Column="1" Grid.Row="2" />
-            <TextBox  Grid.Column="1" Grid.Row="3"  Margin="0,0,20,0"/>
-            <TextBlock Text="Address" Margin="1,5,0,0"  Grid.Column="0" Grid.Row="4" />
-            <TextBox x:Name="txtEmailAdress" Grid.Column="0" Grid.Row="5" Margin="0,0,20,0"  />
-            <TextBlock Text="Telephone" Grid.Column="1" Grid.Row="4" Margin="1,5,0,0"/>
-            <TextBox x:Name="txtCustomerPhone" Grid.Column="1" Grid.Row="5"  Margin="0,0,20,0"/>
 
-            <Button Content="Update" Grid.Column="0" Grid.Row="7" Background="LightBlue" Width="150" HorizontalAlignment="Left" />
+            <TextBlock Text="Email" Margin="1,5,0,0" Grid.Column="1" Grid.Row="2" />
+            <TextBox x:Name="txtEmail" Grid.Column="1" Grid.Row="3" Margin="0,0,10,0" HorizontalAlignment="Left" Width="150"/>
+
+            <TextBlock Text="Telephone" Grid.Column="1" Grid.Row="4" Margin="1,5,0,0"/>
+            <TextBox x:Name="txtCustomerPhone" Grid.Column="1" Grid.Row="5" Width="150" Margin="0,0,10,0" HorizontalAlignment="Left"/>
+
+            <Button Content="Update" Grid.Column="1" Grid.Row="7" Background="LightGreen" Width="100" HorizontalAlignment="Left" Click="btnUpdate_Click"/>
         </Grid>
     </StackPanel>
 </UserControl>
