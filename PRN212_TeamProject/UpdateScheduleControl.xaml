@@ -4,10 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PRN212_TeamProject"
-             mc:Ignorable="d" 
-             >
+             mc:Ignorable="d">
     <StackPanel>
-
         <Grid Margin="30,15,10,0" Height="220">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -24,26 +22,42 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
-
             </Grid.RowDefinitions>
-            <TextBlock Text="Customer ID" Grid.Column="0" Grid.Row="0" />
-            <TextBox x:Name="txtId" Grid.Column="0" Grid.Row="1"  Margin="0,0,20,0"/>
-            <TextBlock Text="CustomerFullName" Margin="1,5,0,0" Grid.Column="0" Grid.Row="2" />
-            <ComboBox  Grid.Column="0" Grid.Row="3"  Margin="0,0,50,0"/>
-            <TextBlock  Text="CustomerStatus" Grid.Column="1" Grid.Row="0" />
-            <ComboBox  x:Name="cbCustomerStatus" Grid.Column="1" Grid.Row="1"  Margin="0,0,100,0">
-                <ComboBoxItem Content="Active" Tag="1"/>
-                <ComboBoxItem Content="Banned" Tag="0"/>
+
+            <!-- Patient ID -->
+            <TextBlock Text="Patient ID" Grid.Column="0" Grid.Row="0" />
+            <TextBox x:Name="txtPatientId" Grid.Column="0" Grid.Row="1" Margin="0,0,20,0"/>
+
+            <!-- Service -->
+            <TextBlock Text="Service" Grid.Column="0" Grid.Row="2" Margin="0,5,0,0"/>
+            <ComboBox x:Name="cbService" Grid.Column="0" Grid.Row="3" Margin="0,0,20,0"/>
+
+            <!-- Slot -->
+            <TextBlock Text="Slot" Grid.Column="1" Grid.Row="0" />
+            <ComboBox x:Name="cbSlot" Grid.Column="1" Grid.Row="1" Margin="0,0,50,0"/>
+
+            <!-- Date Booking -->
+            <TextBlock Text="Date Booking" Grid.Column="1" Grid.Row="2" Margin="0,5,0,0"/>
+            <DatePicker x:Name="dpDateBooking" Grid.Column="1" Grid.Row="3" Margin="0,0,20,0"/>
+
+            <!-- Note -->
+            <TextBlock Text="Note" Grid.Column="0" Grid.Row="4" Margin="0,5,0,0"/>
+            <TextBox x:Name="txtNote" Grid.Column="0" Grid.Row="5" Margin="0,0,20,0"/>
+
+            <!-- Result -->
+            <TextBlock Text="Result" Grid.Column="1" Grid.Row="4" Margin="0,5,0,0"/>
+            <TextBox x:Name="txtResult" Grid.Column="1" Grid.Row="5" Margin="0,0,20,0"/>
+
+            <!-- Status -->
+            <TextBlock Text="Status" Grid.Column="0" Grid.Row="6" Margin="0,5,0,0"/>
+            <ComboBox x:Name="cbStatus" Grid.Column="0" Grid.Row="7" Margin="0,0,20,0">
+                <ComboBoxItem Content="PENDING"/>
+                <ComboBoxItem Content="DONE"/>
+                <ComboBoxItem Content="CANCELLED"/>
             </ComboBox>
-            <TextBlock Text="CustomerBirthday" Margin="1,5,0,0" Grid.Column="1" Grid.Row="2" />
-            <DatePicker x:Name="txtCustomerBD" Grid.Column="1" Grid.Row="3"  Margin="0,0,20,0"/>
-            <TextBlock Text="Address" Margin="1,5,0,0"  Grid.Column="0" Grid.Row="4" />
-            <TextBox x:Name="txtEmailAdress" Grid.Column="0" Grid.Row="5" Grid.RowSpan="3" Margin="0,0,20,0"  />
-            <TextBlock Text="Telephone" Grid.Column="1" Grid.Row="4" Margin="1,5,0,0"/>
-            <ComboBox  x:Name="cnbDoctor" Grid.Column="1" Grid.Row="5"  Margin="0,0,50,0"/>
-            <TextBlock Text="World" Grid.Column="1" Grid.Row="6" Margin="1,5,0,0"/>
-            <ComboBox  x:Name="cnb" Grid.Column="1" Grid.Row="7"  Margin="0,0,50,0"/>
-            <Button Content="Update" Grid.Column="0" Grid.Row="9" Background="LightBlue" Width="150" HorizontalAlignment="Left" />
+
+            <!-- Update Button -->
+            <Button Content="Update" Grid.Column="0" Grid.Row="9" Background="LightBlue" Width="150" HorizontalAlignment="Left" Click="btnUpdate_Click"/>
         </Grid>
     </StackPanel>
 </UserControl>

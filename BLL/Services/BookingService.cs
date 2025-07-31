@@ -14,6 +14,11 @@ namespace BLL.Services
             _bookingRepository = new BookingRepository();
         }
 
+        public List<Booking> SearchBookings(string keyword)
+        {
+            return _bookingRepository.SearchBookings(keyword);
+        }
+
         public List<Booking> GetAll() => _bookingRepository.GetAll();
 
         public Booking? GetById(int id) => _bookingRepository.GetById(id);
@@ -28,10 +33,13 @@ namespace BLL.Services
 
         public void Create(Booking booking) => _bookingRepository.Create(booking);
 
-        public bool Update(Booking booking) => _bookingRepository.Update(booking);
+        public bool Update(Booking booking) => _bookingRepository.UpdateBooking(booking);
 
         public bool Delete(int bookingId) => _bookingRepository.Delete(bookingId);
 
-        public bool IsSlotAvailable(int slotId, DateTime date) => _bookingRepository.CheckSlotAvailability(slotId, date);
+        public bool IsSlotTaken(int selectedValue, DateTime value, int bookingId)
+        {
+            return _bookingRepository.IsSlotTaken(selectedValue, value, bookingId);
+        }
     }
 }

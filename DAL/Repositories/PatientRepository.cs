@@ -57,7 +57,11 @@ namespace DAL.Repositories
 
         }
 
-     
+        public Patient? GetById(int id)
+        {
+            return _context.Patients.FirstOrDefault(p => p.PatientId == id);
+        }
+
 
     }
 }

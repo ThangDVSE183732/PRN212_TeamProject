@@ -22,17 +22,37 @@ namespace PRN212_TeamProject
     public partial class BookingTable : UserControl
     {
         private readonly BookingService _bookingService = new BookingService();
+        public static Booking? SelectedBooking { get; private set; }
+
 
         public BookingTable()
         {
             InitializeComponent();
-            LoadBookingData();
         }
 
-        private void LoadBookingData()
+        public Booking? GetSelectedBooking()
         {
-            List<Booking> bookings = _bookingService.GetAll();
+            return dgBooking.SelectedItem as Booking;
+        }
+
+
+        public void LoadBookings(List<Booking> bookings)
+        {
             dgBooking.ItemsSource = bookings;
+        }
+
+        public void SetBookingList(List<Booking> bookings)
+        {
+            dgBooking.ItemsSource = null;
+            dgBooking.ItemsSource = bookings;
+        }
+
+        private void dgBooking_SelectedChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dgBooking.SelectedItem is Booking booking)
+            {
+                SelectedBooking = booking;
+            }
         }
     }
 }

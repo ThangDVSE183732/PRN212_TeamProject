@@ -17,6 +17,11 @@ namespace BLL.Services
             _repo = new PatientRepository();
         }
 
+        public Patient? GetById(int id)
+        {
+            return _repo.GetById(id);
+        }
+
         public Patient GetPatientProfile(string email, string password)
         {
             return _repo.GetPatientProfile(email, password);

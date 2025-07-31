@@ -15,6 +15,26 @@ namespace DAL.Repositories
             _context = new Prn212Context();
         }
 
+        // find by ServiceName, PatientName, DoctorName
+        public List<Booking> SearchBookings(string keyword)
+        {
+            keyword = keyword?.Trim().ToLower() ?? "";
+
+            return _context.Bookings
+                .Include(b => b.Service)
+                .Include(b => b.Patient)
+                .Include(b => b.Slot)
+                    .ThenInclude(s => s.Shift)
+                        .ThenInclude(sh => sh.Doctor)
+                .Where(b =>
+                    b.Service.Name.ToLower().Contains(keyword) ||
+                    b.Patient.Name.ToLower().Contains(keyword) ||
+                    b.Slot.Shift.Doctor.DoctorName.ToLower().Contains(keyword))
+                .AsNoTracking()
+                .ToList();
+        }
+
+
         // Get all bookings
         public List<Booking> GetAll()
         {
@@ -22,9 +42,12 @@ namespace DAL.Repositories
                 .Include(b => b.Patient)
                 .Include(b => b.Service)
                 .Include(b => b.Slot)
+                    .ThenInclude(s => s.Shift)
+                        .ThenInclude(sh => sh.Doctor)
                 .AsNoTracking()
                 .ToList();
         }
+
 
         // Get booking by ID
         public Booking? GetById(int id)
@@ -89,31 +112,35 @@ namespace DAL.Repositories
         }
 
         // Update booking
-        public bool Update(Booking booking)
+        public bool UpdateBooking(Booking updatedBooking)
         {
-            var existing = _context.Bookings.FirstOrDefault(b => b.BookingId == booking.BookingId);
-            if (existing == null) return false;
+            var existing = _context.Bookings.FirstOrDefault(b => b.BookingId == updatedBooking.BookingId);
+            if (existing == null)
+                return false;
 
-            existing.PatientId = booking.PatientId;
-            existing.ServiceId = booking.ServiceId;
-            existing.SlotId = booking.SlotId;
-            existing.DateBooking = booking.DateBooking;
-            existing.Note = booking.Note;
-            existing.Result = booking.Result;
-            existing.Status = booking.Status;
+            // Cập nhật các trường
+            existing.PatientId = updatedBooking.PatientId;
+            existing.ServiceId = updatedBooking.ServiceId;
+            existing.SlotId = updatedBooking.SlotId;
+            existing.DateBooking = updatedBooking.DateBooking;
+            existing.Note = updatedBooking.Note;
+            existing.Result = updatedBooking.Result;
+            existing.Status = updatedBooking.Status;
 
             return _context.SaveChanges() > 0;
         }
 
+
         // Delete booking
         public bool Delete(int bookingId)
         {
-            var booking = _context.Bookings.Find(bookingId);
+            var booking = _context.Bookings.FirstOrDefault(b => b.BookingId == bookingId);
             if (booking == null) return false;
 
             _context.Bookings.Remove(booking);
             return _context.SaveChanges() > 0;
         }
+
 
         // Check if a slot is already booked on a specific date
         public bool CheckSlotAvailability(int slotId, DateTime date)
@@ -126,6 +153,14 @@ namespace DAL.Repositories
         public int GetNextId()
         {
             return (_context.Bookings.Max(b => (int?)b.BookingId) ?? 0) + 1;
+        }
+
+        public bool IsSlotTaken(int slotId, DateTime dateBooking, int currentBookingId)
+        {
+            return _context.Bookings.Any(b =>
+                b.SlotId == slotId
+                && b.DateBooking.Date == dateBooking.Date
+                && b.BookingId != currentBookingId);
         }
     }
 }

@@ -6,14 +6,15 @@
         <DataGrid x:Name="dgDoctor"
                   AutoGenerateColumns="False"
                   IsReadOnly="True"
-                  SelectionMode="Single">
+                  SelectionMode="Single"
+                  VerticalScrollBarVisibility="Auto">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding DoctorId}" Width="50"/>
-                <DataGridTextColumn Header="Name" Binding="{Binding DoctorName}" Width="150"/>
-                <DataGridTextColumn Header="Specialization" Binding="{Binding Specialization}" Width="150"/>
-                <DataGridTextColumn Header="Phone" Binding="{Binding Phone}" Width="100"/>
-                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="150"/>
-                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="80"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding DoctorId}" Width=".3*"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding DoctorName}" Width="*"/>
+                <DataGridTextColumn Header="Specialization" Binding="{Binding Specialization}" Width="*"/>
+                <DataGridTextColumn Header="Phone" Binding="{Binding Phone}" Width="*"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

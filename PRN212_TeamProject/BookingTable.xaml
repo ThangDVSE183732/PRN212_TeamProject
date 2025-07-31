@@ -13,15 +13,16 @@
                   SelectionMode="Single"
                   Margin="10"
                   HorizontalScrollBarVisibility="Visible"
+                  SelectionChanged="dgBooking_SelectedChanged"
                   VerticalScrollBarVisibility="Auto">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Booking ID" Binding="{Binding BookingId}" Width="Auto"/>
-                <DataGridTextColumn Header="Patient Name" Binding="{Binding Patient.FullName}" Width="Auto"/>
-                <DataGridTextColumn Header="Service Name" Binding="{Binding Service.Name}" Width="Auto"/>
-                <DataGridTextColumn Header="Slot Time" Binding="{Binding Slot.TimeRange}" Width="Auto"/>
-                <DataGridTextColumn Header="Date" Binding="{Binding DateBooking, StringFormat=d}" Width="Auto"/>
-                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="Auto"/>
-                <DataGridTextColumn Header="Result" Binding="{Binding Result}" Width="Auto"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding BookingId}" Width=".3*"/>
+                <DataGridTextColumn Header="Patient" Binding="{Binding Patient.Name}" Width="*"/>
+                <DataGridTextColumn Header="Doctor" Binding="{Binding Slot.Shift.Doctor.DoctorName}" Width="*"/>
+                <DataGridTextColumn Header="Service" Binding="{Binding Service.Name}" Width="*"/>
+                <DataGridTextColumn Header="Date" Binding="{Binding DateBooking}" Width="*"/>
+                <DataGridTextColumn Header="Result" Binding="{Binding Result}" Width="*"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
