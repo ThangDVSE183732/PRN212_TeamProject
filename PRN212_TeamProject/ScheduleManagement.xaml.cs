@@ -23,11 +23,12 @@ namespace PRN212_TeamProject
         public ScheduleManagement()
         {
             InitializeComponent();
+            ScheduleContentControl.Content = new BookingTable();
         }
 
         private void ViewSchedule_Click(object sender, RoutedEventArgs e)
         {
-
+            ScheduleContentControl.Content = new BookingTable();
         }
 
         private void UpdateSchedule_Click(object sender, RoutedEventArgs e)
