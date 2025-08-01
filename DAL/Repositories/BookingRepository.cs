@@ -15,6 +15,29 @@ namespace DAL.Repositories
             _context = new Prn212Context();
         }
 
+
+        public bool CreateBooking(Booking booking)
+        {
+            bool isSuccess = false;
+            var existedBooking = GetBookingById(booking.BookingId);
+            if (existedBooking == null)
+            {
+                int maxId = _context.Bookings.Any()
+                   ? _context.Bookings.Max(x => x.BookingId)
+                   : 1;
+                booking.BookingId = maxId + 1;
+                _context.Bookings.Add(booking);
+                _context.SaveChanges();
+                isSuccess = true;
+            }
+            return isSuccess;
+        }
+
+        public Booking GetBookingById(int id)
+        {
+            return _context.Bookings.Find(id);
+        }
+
         // find by ServiceName, PatientName, DoctorName
         public List<Booking> SearchBookings(string keyword)
         {

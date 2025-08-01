@@ -3,9 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:local="clr-namespace:PRN212_TeamProject"
              mc:Ignorable="d" 
-             >
+             Loaded="SlotLoader">
     <StackPanel>
 
         <Grid Margin="30,15,10,0" Height="220">
@@ -24,20 +25,27 @@
                 <RowDefinition Height="*"/>
 
             </Grid.RowDefinitions>
-            <TextBlock Text="Customer ID" Grid.Column="0" Grid.Row="0" />
-            <ComboBox  x:Name="cbCustomer" Grid.Column="0" Grid.Row="1"  Margin="0,0,20,0"/>
-            <TextBlock Text="CustomerFullName" Margin="1,5,0,0" Grid.Column="0" Grid.Row="2" />
-            <DatePicker x:Name="txtCustomerBD" Grid.Column="0" Grid.Row="3"  Margin="0,0,20,0"/>
-            <TextBlock  Text="CustomerStatus" Grid.Column="1" Grid.Row="0" />
-            <ComboBox  x:Name="cbCustomerStatus" Grid.Column="1" Grid.Row="1"  Margin="0,0,20,0">
+            <TextBlock Text="Shift" Grid.Column="0" Grid.Row="0" />
+            <ComboBox  x:Name="cnbShift" Grid.Column="0" Grid.Row="1"  Margin="0,0,20,0"/>
+            <TextBlock Text="Start time" Margin="1,5,0,0" Grid.Column="0" Grid.Row="2" />
+            <xctk:TimePicker x:Name="txtStartTime"
+                Format="ShortTime"
+                Grid.Row="3" Grid.Column="0"
+                Margin="0,0,20,0"
+                />  
+            <TextBlock  Text="Status" Grid.Column="1" Grid.Row="0" />
+            <ComboBox  x:Name="cnbStatus" Grid.Column="1" Grid.Row="1"  Margin="0,0,20,0">
                 <ComboBoxItem Content="Active" Tag="1"/>
                 <ComboBoxItem Content="Banned" Tag="0"/>
             </ComboBox>
            
-            <TextBlock Text="Address" Margin="1,5,0,0"  Grid.Column="0" Grid.Row="4" />
-            <DatePicker  Grid.Column="0" Grid.Row="5"  Margin="0,0,20,0"/>
-            
-            <Button Content="Create" Grid.Column="0" Grid.Row="7" Background="LightBlue" Width="150" HorizontalAlignment="Left" />
+            <TextBlock Text="End Time" Margin="1,5,0,0"  Grid.Column="0" Grid.Row="4" />
+            <xctk:TimePicker x:Name="txtEndTime"
+                Format="ShortTime"
+                Grid.Row="5" Grid.Column="0"
+                Margin="0,0,20,0"
+    />
+            <Button Content="Create" Grid.Column="0" Grid.Row="7" Background="LightBlue" Width="150" HorizontalAlignment="Left" Click="btnCreate_Click" />
         </Grid>
     </StackPanel>
 </UserControl>

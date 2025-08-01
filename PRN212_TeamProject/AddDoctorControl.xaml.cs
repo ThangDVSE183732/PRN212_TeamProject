@@ -1,4 +1,5 @@
-﻿using BLL.Services;
+﻿using BLL.Mapper;
+using BLL.Services;
 using DAL.Entities;
 using DLL.Services;
 using System;
@@ -13,10 +14,12 @@ namespace PRN212_TeamProject
     public partial class AddDoctorControl : UserControl
     {
         private readonly DoctorService _doctorService = new DoctorService();
+        private UserService userService;
 
         public AddDoctorControl()
         {
             InitializeComponent();
+            userService = new UserService();
         }
 
         private void btnCreate_Click(object sender, RoutedEventArgs e)
@@ -70,8 +73,9 @@ namespace PRN212_TeamProject
                     Status = status,
                     Password = password,
                 };
-
+                User newUser = UserMapper.ToDoctor(email, password);
                 _doctorService.CreateDoctor(newDoctor);
+                userService.CreateUser(newUser);
                 MessageBox.Show("Success!");
 
                 ClearFields();

@@ -9,10 +9,8 @@
     <StackPanel>
         <Border   BorderBrush="Black" BorderThickness="1" Width="530" Height="280" Padding="20,10,20,10">
             <ContentControl x:Name="DoctorContentControl" />
-
         </Border>
         <Grid>
-
             <Button Margin="27,0,0,0" Width="80" Height="15" HorizontalAlignment="Left" Content="Search Doctor" FontSize="8" Click="SearchDoctor_Click" />
             <Button Margin="109,0,0,0" Width="80" Height="15" HorizontalAlignment="Left" Content="Add Doctor" FontSize="8"  Click="AddDoctor_Click"/>
             <Button Margin="191,0,0,0" Width="80" Height="15" HorizontalAlignment="Left" Content="Update Doctor" FontSize="8"  Click="UpdateDoctor_Click"/>

@@ -1,5 +1,6 @@
 ﻿using BLL.Services;
 using DAL.Entities;
+using DLL.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,13 +23,14 @@ namespace PRN212_TeamProject
     public partial class LoginWindow : Window
     {
         private UserService _userService;
-
+        private DoctorService _doctorService;
         private bool isPasswordVisible = false;
 
         public LoginWindow()
         {
             InitializeComponent();
             _userService = new UserService();
+            _doctorService = new DoctorService();
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -58,7 +60,8 @@ namespace PRN212_TeamProject
                         this.Close();
                         break;
                     case 3:
-                        DoctorWindow doctor = new DoctorWindow();
+                        Doctor doctorAccount = _doctorService.GetDoctorAccount(user.Email, user.Password);
+                        DoctorWindow doctor = new DoctorWindow(doctorAccount);
                         doctor.Show();
                         this.Close();
                         break;

@@ -9,9 +9,9 @@ namespace PRN212_TeamProject
 {
     public partial class UpdateScheduleControl : UserControl
     {
-        private readonly BookingService _bookingService = new BookingService();
-        private readonly ServiceService _serviceService = new ServiceService();
-        private readonly SlotService _slotService = new SlotService();
+        private readonly BookingService _bookingService;
+        private readonly ServiceService _serviceService;
+        private readonly SlotService _slotService;
         private readonly PatientService _patientService = new PatientService();
 
         private readonly Booking _selectedBooking;
@@ -20,7 +20,9 @@ namespace PRN212_TeamProject
         {
             InitializeComponent();
             _selectedBooking = booking;
-
+            _bookingService = new BookingService();
+            _serviceService = new ServiceService();
+            _slotService = new SlotService();
             LoadServiceComboBox();
             LoadSlotComboBox();
             LoadData();

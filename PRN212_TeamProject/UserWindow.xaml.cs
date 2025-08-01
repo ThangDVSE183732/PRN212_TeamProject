@@ -45,7 +45,8 @@ namespace PRN212_TeamProject
 
         private void BookingService_Click(object sender, MouseButtonEventArgs e)
         {
-            UserContentControl.Content = new BookingServiceControl();
+            Patient? patient = patientService.GetPatientProfile(_user.Email, _user.Password);
+            UserContentControl.Content = new BookingServiceControl(patient);
 
         }
     }

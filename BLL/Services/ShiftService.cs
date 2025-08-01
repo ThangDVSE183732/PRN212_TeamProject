@@ -42,5 +42,10 @@ namespace BLL.Services
         {
             return _repo.UpdateShift(shift);
         }
+
+        public List<Shift> GetShiftByDoctorId(int id)
+        {
+            return _repo.GetShiftByDoctorId(id);
+        }
     }
 }

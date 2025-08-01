@@ -36,6 +36,11 @@ namespace DAL.Repositories
             return _context.Doctors.FirstOrDefault(d => d.DoctorId == doctorId);
         }
 
+        public Doctor? GetDoctorAccount(string email, string password)
+        {
+            return _context.Doctors.FirstOrDefault(x => x.Email == email && x.Password == password);
+        }
+
         public void CreateDoctor(Doctor doctor)
         {
             int maxId = _context.Doctors.Any()

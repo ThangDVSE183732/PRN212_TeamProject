@@ -18,37 +18,37 @@ using System.Windows.Shapes;
 namespace PRN212_TeamProject
 {
     /// <summary>
-    /// Interaction logic for ViewSlotControl.xaml
+    /// Interaction logic for ViewScheduleWorkControl.xaml
     /// </summary>
-    public partial class ViewSlotControl : UserControl
+    public partial class ViewScheduleWorkControl : UserControl
     {
-        public event Action<Slot> SlotSelected;
-        private SlotService _slotService;
-        public ViewSlotControl()
+        private Doctor _doctor;
+        private ShiftService _shiftService;
+        public ViewScheduleWorkControl(Doctor doctor)
         {
             InitializeComponent();
-            _slotService = new SlotService();
+            _doctor = doctor;
+            _shiftService = new ShiftService();
         }
 
         public void loadDataInit()
         {
             try
             {
-                this.dgSlot.ItemsSource = _slotService.GetSlot()
+                this.dgScheduleWork.ItemsSource = _shiftService.GetShiftByDoctorId(_doctor.DoctorId)
                     .Select(r => new
                     {
-                        r.SlotId,
+                        r.ShiftId,
+                        r.Name,
                         StartTime = r.StartTime.HasValue
                             ? DateTime.Today.Add(r.StartTime.Value.ToTimeSpan()).ToString("hh:mm tt")
                             : "",
                         EndTime = r.EndTime.HasValue
                             ? DateTime.Today.Add(r.EndTime.Value.ToTimeSpan()).ToString("hh:mm tt")
                             : "",
-                        r.Status,
-                        Shift = r.Shift != null ? r.Shift.Name : "Shift Empty"
+                        r.DateWork,
+                        r.Status
                     });
-
-
             }
             catch (Exception ex)
             {
@@ -56,26 +56,14 @@ namespace PRN212_TeamProject
             }
         }
 
-        private void dgSlot_SelectedChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (dgSlot.SelectedItem is not null)
-            {
-                var selectSlot = dgSlot.SelectedItem as dynamic;
-                if (selectSlot != null)
-                {
-                    int id = int.Parse(selectSlot.SlotId.ToString());
-                    Slot slot = _slotService.GetSlottById(id);
-                    if (slot != null)
-                    {
-                        SlotSelected?.Invoke(slot);
-                    }
-                }
-            }
-        }
-
-        private void SlotLoader(object sender, RoutedEventArgs e)
+        private void ScheduleWorkLoad(object sender, RoutedEventArgs e)
         {
             loadDataInit();
+        }
+
+        private void dgScheduleWork_SelectedChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
