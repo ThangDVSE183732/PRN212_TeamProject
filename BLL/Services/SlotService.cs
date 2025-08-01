@@ -43,5 +43,10 @@ namespace BLL.Services
         {
            return _repo.UpdateSlot(slot);
         }
+
+        public List<Slot> GetSlottByShiftId(int id)
+        {
+            return _repo.GetSlottByShiftId(id);
+        }
     }
 }

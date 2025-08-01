@@ -57,7 +57,12 @@ namespace DAL.Repositories
             return _context.Slots.Find(id);
         }
 
-   
+        public List<Slot> GetSlottByShiftId(int id)
+        {
+            return _context.Slots.Include(b => b.Shift).Where(c => c.ShiftId == id).ToList();
+        }
+
+
         public bool UpdateSlot(Slot slot)
         {
             bool isSuccess = false;

@@ -63,7 +63,25 @@ namespace PRN212_TeamProject
 
         private void dgScheduleWork_SelectedChanged(object sender, SelectionChangedEventArgs e)
         {
+           
+        }
 
+        private void dgSlotList_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var row = ItemsControl.ContainerFromElement(dgScheduleWork, e.OriginalSource as DependencyObject) as DataGridRow;
+            if (row == null || row.Item == null)
+                return;
+
+            // If you use anonymous objects for ItemsSource, cast accordingly
+            var selectedItem = row.Item;
+
+            if (selectedItem != null)
+            {
+                var shiftIdProp = selectedItem.GetType().GetProperty("ShiftId");
+                int id = shiftIdProp != null ? (int)shiftIdProp.GetValue(selectedItem) : 0;
+                var slotSchedule = new SlotScheduleControl(id);
+                slotSchedule.Show();
+            }
         }
     }
 }
