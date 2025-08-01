@@ -26,7 +26,7 @@
                     <PasswordBox x:Name="txtPassword" Margin="0,5,20,15"/>
                     <Button x:Name="btnShowPassword" Content="👁" Width="20" Height="17" VerticalAlignment="Top" HorizontalAlignment="Right"  Margin="0,5,0,0" Click="btnShowPassword_Click"  />
                 </Grid>
-                <TextBlock Text="You already have an account?" FontSize="8" FontWeight="Bold" Foreground="LightSkyBlue" TextAlignment="Center"/>
+                <TextBlock Text="You already have an account?" FontSize="8" FontWeight="Bold" Foreground="LightSkyBlue" TextAlignment="Center" MouseLeftButtonUp="AlreadyHaveAccount_Click"/>
                 <Button Name="btnRegister" Content="Sign up" FontWeight="bold" Foreground="White" Background="SkyBlue" Margin="0,7" Height="20" Width="130" Click="btnRegister_Click"/>
             </StackPanel>
         </GroupBox>

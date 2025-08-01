@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 
@@ -42,6 +43,19 @@ namespace PRN212_TeamProject
         private void ScheduleWork_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             DoctorContentControl.Content = new ScheduleWorkManagerment(_doctor);
+        }
+
+        private void LogOut_Click(object sender, MouseButtonEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to log out?", "Log Out",
+                                              MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.Show();
+                this.Close();
+            }
         }
 
         //private void PatientManagment_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)

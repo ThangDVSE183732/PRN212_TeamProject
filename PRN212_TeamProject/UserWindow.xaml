@@ -38,7 +38,7 @@
         </DockPanel>
         <StackPanel>
             <!--Top bar-->
-            <TextBlock Text="Log Out" TextDecorations="Underline" Height="20"  Width="50" FontWeight="Medium" FontSize="12" Margin="0,15,70,10" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="LightBlue" Cursor="Hand"/>
+            <TextBlock Text="Log Out" TextDecorations="Underline" Height="20"  Width="50" FontWeight="Medium" FontSize="12" Margin="0,15,70,10" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="LightBlue" Cursor="Hand" MouseLeftButtonUp="LogOut_Click"/>
             <DockPanel Width="600"  Height="65"  Background="#00BCD4" Margin="200,0,0,25" >
                 <TextBlock Text="Welcome: User" FontSize="15" Margin="20,0,0,0" VerticalAlignment="Center" FontWeight="Medium" Foreground="White"/>
             </DockPanel>

@@ -43,6 +43,19 @@ namespace PRN212_TeamProject
             MainContentControl.Content = new ServiceManagement();
         }
 
+        private void LogOut_Click(object sender, MouseButtonEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to log out?", "Log Out",
+                                              MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.Show();
+                this.Close();
+            }
+        }
+
 
 
         //private void navToServicePage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
