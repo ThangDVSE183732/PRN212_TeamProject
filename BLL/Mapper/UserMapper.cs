@@ -22,5 +22,19 @@ namespace BLL.Mapper
             newUser.DateOfBirth = DateOnly.FromDateTime(DateTime.Now);
             return newUser;
         }
+
+        public static User ToDoctor(string email, string password)
+        {
+            User newUser = new User();
+            newUser.Email = email;
+            newUser.Password = password;
+            newUser.FullName = "";
+            newUser.Phone = "";
+            newUser.RoleId = 3;
+            newUser.Address = "";
+            newUser.Status = "Active";
+            newUser.DateOfBirth = DateOnly.FromDateTime(DateTime.Now);
+            return newUser;
+        }
     }
 }

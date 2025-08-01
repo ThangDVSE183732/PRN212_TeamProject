@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,15 +21,17 @@ namespace PRN212_TeamProject
     /// </summary>
     public partial class ScheduleWorkManagerment : UserControl
     {
-        public ScheduleWorkManagerment()
+        private Doctor _doctor;
+        public ScheduleWorkManagerment(Doctor doctor)
         {
             InitializeComponent();
-            WorkContentControl.Content = new ViewScheduleWorkControl();
+            _doctor = doctor;
+            WorkContentControl.Content = new ViewScheduleWorkControl(_doctor);
         }
 
         private void btnViewWork_Click(object sender, RoutedEventArgs e)
         {
-            WorkContentControl.Content = new ViewScheduleWorkControl();
+            WorkContentControl.Content = new ViewScheduleWorkControl(_doctor);
         }
     }
 }

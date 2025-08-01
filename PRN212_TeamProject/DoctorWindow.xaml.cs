@@ -14,14 +14,16 @@ namespace PRN212_TeamProject
     public partial class DoctorWindow : Window
     {
         private readonly DoctorService _doctorService;
+        private Doctor _doctor;
         private DispatcherTimer _timer;
         private List<Doctor> _allDoctors;
         private List<Doctor> _filteredDoctors;
 
-        public DoctorWindow()
+        public DoctorWindow(Doctor doctor)
         {
             InitializeComponent();
-            DoctorContentControl.Content = new ScheduleWorkManagerment();
+            _doctor = doctor;
+            DoctorContentControl.Content = new ScheduleWorkManagerment(_doctor);
             //try
             //{
             //    _doctorService = new DoctorService(new Prn212Context());
@@ -39,7 +41,7 @@ namespace PRN212_TeamProject
 
         private void ScheduleWork_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            DoctorContentControl.Content = new ScheduleWorkManagerment();
+            DoctorContentControl.Content = new ScheduleWorkManagerment(_doctor);
         }
 
         //private void PatientManagment_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)

@@ -21,5 +21,27 @@ namespace BLL.Services
         {
             return _repo.GetSlot();
         }
+
+        public bool CreateSlot(Slot slot)
+        {
+            return _repo.CreateSlot(slot);
+        }
+
+        public bool DeleteShift(int id)
+        {
+           return _repo.DeleteShift(id);
+        }
+
+
+        public Slot GetSlottById(int id)
+        {
+            return _repo.GetSlottById(id);
+        }
+
+
+        public bool UpdateSlot(Slot slot)
+        {
+           return _repo.UpdateSlot(slot);
+        }
     }
 }

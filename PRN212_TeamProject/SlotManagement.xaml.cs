@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL.Services;
+using DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,14 +22,21 @@ namespace PRN212_TeamProject
     /// </summary>
     public partial class SlotManagement : UserControl
     {
+        private Slot selectedSlot;
+        private ViewSlotControl view = new ViewSlotControl();
+        private SlotService slotService;
         public SlotManagement()
         {
             InitializeComponent();
+            view.SlotSelected += OnSlotSelected;
+            SlotContentControl.Content = view;
+            slotService = new SlotService();
         }
 
         private void ViewSlot_Click(object sender, RoutedEventArgs e)
         {
-            SlotContentControl.Content = new ViewSlotControl();
+            view.SlotSelected += OnSlotSelected;
+            SlotContentControl.Content = view;
         }
 
         private void AddSlot_Click(object sender, RoutedEventArgs e)
@@ -38,13 +47,18 @@ namespace PRN212_TeamProject
 
         private void UpdateSlot_Click(object sender, RoutedEventArgs e)
         {
-            SlotContentControl.Content = new UpdateSlotControl();
+            SlotContentControl.Content = new UpdateSlotControl(selectedSlot);
 
         }
 
         private void DeleteSlot_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void OnSlotSelected(Slot slot)
+        {
+            selectedSlot = slot;
         }
     }
 }

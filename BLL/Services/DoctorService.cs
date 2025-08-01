@@ -1,5 +1,6 @@
 ﻿using DAL.Entities;
 using DAL.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,11 @@ namespace DLL.Services
         public List<Doctor> GetAllDoctors()
         {
             return _doctorRepository.GetAllDoctors();
+        }
+
+        public Doctor? GetDoctorAccount(string email, string password)
+        {
+            return _doctorRepository.GetDoctorAccount(email,password);
         }
 
         public void DeleteDoctor(Doctor doctor)

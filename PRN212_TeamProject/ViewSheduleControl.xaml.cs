@@ -10,11 +10,12 @@ namespace PRN212_TeamProject
 {
     public partial class ViewSheduleControl : UserControl
     {
-        private readonly BookingService _bookingService = new BookingService();
+        private readonly BookingService _bookingService;
 
         public ViewSheduleControl()
         {
             InitializeComponent();
+            _bookingService = new BookingService();
             btnSearch_Click(null, null);
         }
 

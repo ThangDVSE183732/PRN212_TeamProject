@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL.Services;
+using DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,14 +22,43 @@ namespace PRN212_TeamProject
     /// </summary>
     public partial class ViewScheduleWorkControl : UserControl
     {
-        public ViewScheduleWorkControl()
+        private Doctor _doctor;
+        private ShiftService _shiftService;
+        public ViewScheduleWorkControl(Doctor doctor)
         {
             InitializeComponent();
+            _doctor = doctor;
+            _shiftService = new ShiftService();
+        }
+
+        public void loadDataInit()
+        {
+            try
+            {
+                this.dgScheduleWork.ItemsSource = _shiftService.GetShiftByDoctorId(_doctor.DoctorId)
+                    .Select(r => new
+                    {
+                        r.ShiftId,
+                        r.Name,
+                        StartTime = r.StartTime.HasValue
+                            ? DateTime.Today.Add(r.StartTime.Value.ToTimeSpan()).ToString("hh:mm tt")
+                            : "",
+                        EndTime = r.EndTime.HasValue
+                            ? DateTime.Today.Add(r.EndTime.Value.ToTimeSpan()).ToString("hh:mm tt")
+                            : "",
+                        r.DateWork,
+                        r.Status
+                    });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Loading failed", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void ScheduleWorkLoad(object sender, RoutedEventArgs e)
         {
-
+            loadDataInit();
         }
 
         private void dgScheduleWork_SelectedChanged(object sender, SelectionChangedEventArgs e)

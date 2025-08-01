@@ -14,6 +14,17 @@ namespace BLL.Services
             _bookingRepository = new BookingRepository();
         }
 
+
+        public bool CreateBooking(Booking booking)
+        {
+            return _bookingRepository.CreateBooking(booking);
+        }
+
+        public Booking GetBookingById(int id)
+        {
+            return _bookingRepository.GetBookingById(id);
+        }
+
         public List<Booking> SearchBookings(string keyword)
         {
             return _bookingRepository.SearchBookings(keyword);

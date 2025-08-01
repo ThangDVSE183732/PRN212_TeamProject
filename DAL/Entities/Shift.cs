@@ -22,4 +22,19 @@ public partial class Shift
     public virtual Doctor Doctor { get; set; } = null!;
 
     public virtual ICollection<Slot> Slots { get; set; } = new List<Slot>();
+
+    public string DisplayTime
+    {
+        get
+        {
+            if (StartTime.HasValue && EndTime.HasValue)
+            {
+                return $"{StartTime.Value.ToString("HH:mm")} - {EndTime.Value.ToString("HH:mm")}";
+            }
+            else
+            {
+                return "No Time Set";
+            }
+        }
+    }
 }
