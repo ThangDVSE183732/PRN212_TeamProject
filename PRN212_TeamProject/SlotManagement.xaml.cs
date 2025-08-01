@@ -53,7 +53,32 @@ namespace PRN212_TeamProject
 
         private void DeleteSlot_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                MessageBoxResult msg = MessageBox.Show("Do you want delete shift?", "Delete", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
+                if (msg == MessageBoxResult.Yes)
+                {
+
+                    if (selectedSlot != null)
+                    {
+                        slotService.DeleteShift(selectedSlot.SlotId);
+                        MessageBox.Show("Shift deleted successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                        view.loadDataInit();
+                        SlotContentControl.Content = view;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please choose at least one shift to delete", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void OnSlotSelected(Slot slot)
