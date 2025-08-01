@@ -33,5 +33,18 @@ namespace PRN212_TeamProject
         {
             ManagementContentControl.Content = new ShiftManagement();
         }
+
+        private void LogOut_Click(object sender, MouseButtonEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to log out?", "Log Out",
+                                              MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.Show();
+                this.Close();
+            }
+        }
     }
 }

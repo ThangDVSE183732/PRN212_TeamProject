@@ -72,6 +72,18 @@ namespace PRN212_TeamProject
             }
         }
 
+        private void AlreadyHaveAccount_Click(object sender, MouseButtonEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Are you sure you want to login with existed account?", "Warning",
+                                              MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.Show();
+                this.Close();
+            }
+        }
         private void btnShowPassword_Click(object sender, RoutedEventArgs e)
         {
             if (!isPasswordVisible)
